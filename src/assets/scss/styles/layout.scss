@@ -1,5 +1,4 @@
 //Flex
-
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -10,20 +9,22 @@
   margin-top: 16px;
 }
 
+.margin-right-16 {
+  margin-right: 16px;
+}
+
 //Icons
 .icon {
   width: 24px;
   height: 24px;
   fill: none;
-  opacity: 1;
-  stroke: var(--pulp-black);
 }
 
 .icon-blue {
   width: 24px;
   height: 24px;
   fill: none;
-  stroke: var(--pulp-primary-blue);
+  stroke: var(--primary-blue);
   opacity: 1;
 }
 
@@ -31,6 +32,24 @@
   width: 24px;
   height: 24px;
   fill: none;
-  stroke: var(--pulp-primary-blue);
+  stroke: var(--primary-blue);
   opacity: 1;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60px;
+  cursor: pointer;
+  width: 100%;
+  color: var(--black);
+  font-weight: 400;
+  font-size: 1.125rem;
+  &:hover {
+    color: var(--primary-blue);
+    & .icon {
+      stroke: var(--primary-blue);
+    }
+  }
 }

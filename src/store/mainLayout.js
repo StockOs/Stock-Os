@@ -8,22 +8,22 @@ const initialState = {
   menuItems: [
     {
       name: 'Home',
-      icon: 'list',
+      icon: 'home',
       path: '/',
     },
     {
       name: 'Stocks',
-      icon: 'user',
+      icon: 'stocks',
       path: '/stocks',
     },
     {
       name: 'Commandes',
-      icon: 'book-open',
+      icon: 'orders',
       path: '/orders',
     },
     {
       name: 'Livraison',
-      icon: 'shopping-cart',
+      icon: 'delivery',
       path: '/delivery',
     },
     {
@@ -40,16 +40,17 @@ export default new Vuex.Store({
   },
   getters: {
     getMenuItemsForRoute: (state) => {
-      return (route) => {
-        const currentPath = route
-        return state.menuItems.map((menuItem) => {
-          return {
-            ...menuItem,
-            selected: currentPath === menuItem.path,
-          }
-        })
+      // return (route) => {
+      //   const currentPath = route
+      return state.menuItems
+      //   .map((menuItem) => {
+      //   return {
+      //     ...menuItem,
+      //     // selected: currentPath === menuItem.path,
+      //   }
+      // }
+        // )
       }
-    },
   },
   mutations: {
   },

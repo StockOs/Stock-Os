@@ -1,5 +1,5 @@
 <template>
-  <nav class="menu-content">
+  <nav>
     <ul role="menu">
       <li role="none" v-for="item in menuItems" :key="item.name">
         <MenuItem
@@ -13,8 +13,7 @@
     </ul>
 
     <hr class="margin-top-16">
-    <button class="primary-blue margin-top-16 regular-subtitle-14 item-blue" @click="test">
-      <BaseIcon class="icon-blue margin-right-16" href="#logout" alt="logout icon" aria-hidden="true" />
+    <button class="primary-blue margin-top-16 regular-subtitle-14 item-blue" @click="logout">
       Se déconnecter
     </button>
   </nav>
@@ -22,14 +21,13 @@
 
 <script>
 import MenuItem from './MENU_ITEM.vue'
-import BaseIcon from './icons/BaseIcon'
 
 export default {
-  components: { MenuItem, BaseIcon, },
+  components: { MenuItem },
   computed: {
     menuItems () {
-      return console.log(this.$store)
-      // return this.$store.getters.getMenuItemsForRoute
+       console.log(this.$store.mainLayout.getters.getMenuItemsForRoute)
+      return this.$store.mainLayout.getters.getMenuItemsForRoute
       //(this.$route)
     },
   },
@@ -40,9 +38,6 @@ export default {
     logout () {
       return this.$store.dispatch('mainLayout/logout')
     },
-test() {
-  console.log(this.$store)
-}
   },
 }
 </script>

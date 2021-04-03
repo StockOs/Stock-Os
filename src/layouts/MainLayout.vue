@@ -1,28 +1,12 @@
 <template>
   <div class="layout background-white">
-    <div class="flex-column nav-width">
+    <div class="flex-column nav-width menu-content">
       <div class="flex-column">
-        <h1>Nom du restaurant</h1>
-        <h2>Adresse du restaurant</h2>
-      </div>
-
-      <div class="flex-column">
-        <nav>
-          <ul>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-            <li>Home</li>
-          </ul>
-        </nav>
+        <h1 class="title-name">Nom du restaurant</h1>
+        <h2 class="subtitle-address">Adresse du restaurant</h2>
       </div>
 
       <MenuContent />
-
-      <!-- <div class="flex-column">
-        <p>Paramètres</p>
-        <button>Se déconnecter</button>
-      </div> -->
     </div>
 
     <section class="main-content">

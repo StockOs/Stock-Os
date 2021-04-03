@@ -1,35 +1,42 @@
 <template>
-  <div>
-    <a @click="$emit('click')">
-      <div>
-        <p>Item</p>
-        {{ name }}
-      </div>
-    </a>
-  </div>
+  <a @click="$emit('click')">
+    <div class="item text-menu-item">
+      <BaseIcon
+        class="icon margin-right-16"
+        :href="linkIconSvg"
+        :alt="iconDescription"
+        aria-hidden="true"
+      />
+      {{ name }}
+    </div>
+  </a>
 </template>
 
 <script>
+import BaseIcon from "./icons/BaseIcon";
+
 export default {
-  name: 'MenuItem',
-  components: {  },
+  name: "MenuItem",
+  components: {
+    BaseIcon
+  },
   props: {
     name: {
       type: String,
-      default: '',
+      default: ""
     },
     linkIconSvg: {
       type: String,
-      default: '',
+      default: ""
     },
     iconDescription: {
       type: String,
-      default: '',
+      default: ""
     },
     selected: {
       type: Boolean,
-      default: true,
-    },
-  },
-}
+      default: true
+    }
+  }
+};
 </script>
