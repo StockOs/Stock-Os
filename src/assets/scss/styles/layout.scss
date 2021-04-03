@@ -1,0 +1,36 @@
+//Flex
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+//Margin
+.margin-top-16 {
+  margin-top: 16px;
+}
+
+//Icons
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  opacity: 1;
+  stroke: var(--pulp-black);
+}
+
+.icon-blue {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--pulp-primary-blue);
+  opacity: 1;
+}
+
+.icon-blue {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--pulp-primary-blue);
+  opacity: 1;
+}
