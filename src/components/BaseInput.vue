@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <label>{{ label }}</label>
-    <input 
-      type="text" 
+  <div class="base-input-container">
+    <input
+      class="base-input-data"
       :value="value"
       v-bind="$attrs"
       @input="$emit('input', $event.target.value)"
     >
+    <label class="base-input-label">
+      <span class="base-input-content">{{ label }}</span>
+    </label>
   </div>
 </template>
 
@@ -25,6 +27,17 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  .base-input {
+    color: #283044;
+    padding: 16px;
+    border: none;
+    border-bottom: 2px solid #283044;
+    width: 18rem;
 
+    &:focus{
+      outline: none;
+      color: #4285F4;
+    }
+  }
 </style>
