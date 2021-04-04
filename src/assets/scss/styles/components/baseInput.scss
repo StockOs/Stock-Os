@@ -44,7 +44,8 @@
   transition: all 0.3s ease;
 }
 
-.base-input-container input:focus + .base-input-label .base-input-content{
+.base-input-container input:focus + .base-input-label .base-input-content,
+.base-input-container input:valid + .base-input-label .base-input-content{
   transform: translateY(-150%);
   color: var(--primary-blue);
 }
