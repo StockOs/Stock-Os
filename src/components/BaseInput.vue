@@ -27,18 +27,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-  .base-input {
-    color: #283044;
-    padding: 16px;
-    border: none;
-    border-bottom: 2px solid #283044;
-    width: 18rem;
-
-    &:focus{
-      outline: none;
-      color: #4285F4;
-    }
-  }
-</style>

@@ -1,0 +1,14 @@
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  padding: var(--padding-16);
+  width: 100%;
+}
+
+.checkbox-label{
+  display: block;
+}
+
+.checkbox-input {
+  margin-right: 10px;
+}

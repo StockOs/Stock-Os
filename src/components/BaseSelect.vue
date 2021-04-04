@@ -1,17 +1,19 @@
 <template>
-  <div>
+  <div class="select-container">
     <label>{{ label }}</label>
     <select 
       :value="value"
       @change="$emit('input', $event.target.value)"
       v-bind="$attrs"
+      class="select-input"
     >
       <option 
-        v-for="(item,i) in items" 
+        class="select-option"
+        v-for="(option,i) in options" 
         :key="i"
-        :selected="item === value"
+        :selected="option === value"
       >
-        {{ item.category }}
+        {{ option.category }}
       </option>
     </select>
   </div>
@@ -28,7 +30,7 @@ export default {
       type: String,
       require: false,
     },
-    items: {
+    options: {
       type: Array,
       require: true,
     },
