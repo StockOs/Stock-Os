@@ -13,7 +13,7 @@
     </ul>
 
     <hr class="margin-top-16">
-    <button class="primary-blue margin-top-16 regular-subtitle-14 item-blue" @click="logout">
+    <button class="primary-blue margin-top-16" @click="logout">
       Se déconnecter
     </button>
   </nav>
@@ -26,14 +26,13 @@ export default {
   components: { MenuItem },
   computed: {
     menuItems () {
-       console.log(this.$store.mainLayout.getters.getMenuItemsForRoute)
       return this.$store.mainLayout.getters.getMenuItemsForRoute
       //(this.$route)
     },
   },
   methods: {
     changePage (path) {
-      return this.$store.dispatch('mainLayout/changeCurrentPage', path)
+      return this.$store.mainLayout.commit('changePath', path)
     },
     logout () {
       return this.$store.dispatch('mainLayout/logout')

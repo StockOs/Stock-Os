@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from '../router/index'
 
 Vue.use(Vuex)
 
 const initialState = {
+  path: '',
   loading: false,
   menuItems: [
     {
@@ -14,7 +16,7 @@ const initialState = {
     {
       name: 'Stocks',
       icon: 'stocks',
-      path: '/stocks',
+      path: '/test',
     },
     {
       name: 'Commandes',
@@ -28,36 +30,34 @@ const initialState = {
     },
     {
       name: 'Paramètres',
-      icon: 'unlock',
+      icon: '',
       path: '/settings',
     },
   ],
 }
 
 export default new Vuex.Store({
+
   state: {
     ...initialState,
   },
+
   getters: {
     getMenuItemsForRoute: (state) => {
-      // return (route) => {
-      //   const currentPath = route
-      return state.menuItems
-      //   .map((menuItem) => {
-      //   return {
-      //     ...menuItem,
-      //     // selected: currentPath === menuItem.path,
-      //   }
-      // }
-        // )
-      }
+        return state.menuItems
+    },
+    // newPath: (state) => {
+    //   return state.path
+    // }
   },
   mutations: {
+    changePath: (state, path) => {
+      state.path = path
+      router.push(path)
+    }
   },
+
   actions: {
-    changeCurrentPage: (path) => {
-      this.$router.push(path)
-    },
     logout: () => {
       //Add Remove Token LocalStorage
       this.$router.push('/login')
@@ -65,4 +65,5 @@ export default new Vuex.Store({
   },
   modules: {
   }
+
 })

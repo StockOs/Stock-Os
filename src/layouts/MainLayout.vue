@@ -11,7 +11,7 @@
 
     <section class="main-content">
       <slot />
-      <!-- <router-view :to="currentPath" /> -->
+      <!-- <router-view :to="newPath" /> -->
     </section>
   </div>
 </template>
@@ -21,7 +21,7 @@ import MenuContent from '../components/MENU_CONTENT'
 export default {
   components: {
     MenuContent,
-  }
+  },
 }
 </script>
 
@@ -32,11 +32,11 @@ export default {
   display: flex;
   flex-direction: row;
   height: 100vh;
+  background-color: var(--background-light-blue);
 }
 
 .main-content {
   width: 100%;
-  background-color: blue;
 }
 
 .nav-width {
