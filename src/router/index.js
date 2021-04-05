@@ -9,7 +9,7 @@ const routes = [
     path: '/',
     name: 'Home',
     meta: { layout: "main" },
-    component: require("../views/Home.vue").default // load sync home
+    component: require("../views/Home.vue").default
   },
   {
     path: '/test',

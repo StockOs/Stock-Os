@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 const initialState = {
   path: '',
-  loading: false,
+  isLoading: false,
   menuItems: [
     {
       name: 'Home',
@@ -28,11 +28,6 @@ const initialState = {
       icon: 'delivery',
       path: '/delivery',
     },
-    {
-      name: 'Paramètres',
-      icon: '',
-      path: '/settings',
-    },
   ],
 }
 
@@ -46,9 +41,6 @@ export default new Vuex.Store({
     getMenuItemsForRoute: (state) => {
         return state.menuItems
     },
-    // newPath: (state) => {
-    //   return state.path
-    // }
   },
   mutations: {
     changePath: (state, path) => {
@@ -63,7 +55,4 @@ export default new Vuex.Store({
       this.$router.push('/login')
     },
   },
-  modules: {
-  }
-
 })

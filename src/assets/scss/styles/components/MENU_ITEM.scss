@@ -1,0 +1,17 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60px;
+  cursor: pointer;
+  width: 100%;
+  color: var(--black);
+  font-weight: 400;
+  font-size: 1.125rem;
+  &:hover {
+    color: var(--primary-blue);
+    & .icon {
+      stroke: var(--primary-blue);
+    }
+  }
+}

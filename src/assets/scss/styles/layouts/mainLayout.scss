@@ -1,0 +1,21 @@
+.menu-content {
+  padding: 16px;
+  text-align: left;
+  background-color: var(--white);
+}
+
+.nav-width {
+  width: 244px;
+}
+
+.header {
+  margin-bottom: 86px;
+}
+
+.layout {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background-color: var(--background-light-blue);
+}

@@ -8,5 +8,8 @@
 //Styles
 @import './styles/texts.scss';
 @import './styles/colors.scss';
-@import './styles/layout.scss';
-@import './styles/menu.scss'
+@import './styles/commons.scss';
+@import './styles/components/MENU_ITEM.scss';
+
+//Layouts
+@import './styles/layouts/mainLayout.scss';
