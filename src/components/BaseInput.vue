@@ -4,6 +4,7 @@
       class="base-input-data"
       :value="value"
       v-bind="$attrs"
+      :placeholder="placeholder"
       @input="$emit('input', $event.target.value)"
       required
     >
@@ -18,12 +19,16 @@ export default {
   props: {
     label: {
       type: String,
-      require: true
+      require: true,
     },
     value: {
       type: [String, Number],
       require: true,
     },
+    placeholder: {
+      type: String,
+      require: true,
+    }
   },
 }
 </script>
