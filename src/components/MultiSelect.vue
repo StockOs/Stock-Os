@@ -1,19 +1,29 @@
 <template>
   <div class="multiSelect">
-    <h3>{{ placeholder }}</h3>
-    <div class="multiSelect-input" 
-      @click.self="isFocused = !isFocused"
+    <h3 class="multiSelect-title">{{ placeholder }}</h3>
+    <div class="multiSelect-input-container"
+      @click.self="isFocused = !isFocused" 
     >
-      <div
-        class="multiSelect-input-data"
-        v-for="(option, i) in formattedData"
-        :key="i"
-        v-show="option.checked"
-        @click="handleOptions(i)"
+      <div class="multiSelect-input"
+      @click.self="isFocused = !isFocused" 
       >
-        {{ option[displayOption] }}
-        <span>x</span>
+        <div
+          class="multiSelect-input-data"
+          v-for="(option, i) in formattedData"
+          :key="i"
+          v-show="option.checked"
+          @click="handleOptions(i)"
+        >
+          {{ option[displayOption] }}
+          <span><BaseIcon href="cancel" class="cancel-icon"/></span>
+        </div>
       </div>
+        <BaseIcon 
+          href="arrow" 
+          class="arrow-icon"
+          :class="{'down' : isFocused}"
+          @click.self="isFocused = !isFocused" 
+          />
     </div>
     <div class="multiSelect-dropdown" v-if="isFocused">
         <div 
@@ -24,8 +34,8 @@
           >
           <div 
             class="multiSelect-option-checked"
-            :class="{'color' : option.checked}"
-          ></div>
+            :class="{'checked' : option.checked}"
+          ><BaseIcon href='check' class="check-icon" :class="{'valid' : option.checked}"/></div>
           {{ option[displayOption] }}
         </div>
       </div>
@@ -33,7 +43,12 @@
 </template>
 
 <script>
+import BaseIcon from '@/components/icons/BaseIcon.vue'
+
 export default {
+  components:{
+    BaseIcon,
+  },
   props:{
     options: {
       type: Array,
@@ -88,69 +103,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .multiSelect {
-    width: 200px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-  }
 
-  .multiSelect-input {
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    padding: 8px;
-    border-bottom: 2px solid grey;
-    width: 100%;
-  }
-
-  .multiSelect-input:hover{
-    background-color: rgb(240, 247, 255);
-  }
-
-  .multiSelect-input-data {
-    padding: 0.4rem;
-    background-color: #4285F4;
-    border-radius: 16px;
-    color: white;
-    margin: 0 5px 5px; 
-  }
-
-  .multiSelect-dropdown {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  // .multiSelect-option-container{
-  //   width: 100%;
-  //   overflow-Y: scroll;
-  //   padding: 8px;
-  // }
-
-  .multiSelect-option {
-    display: flex;
-    cursor: pointer;
-    padding: 8px;
-    text-align: start;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(240, 247, 255);
-  }
-
-  .multiSelect-option:hover {
-    background-color: rgb(184, 224, 247);
-  }
-
-  .multiSelect-option-checked {
-    width: 15px;
-    height: 15px;
-    margin-right: 10px;
-  }
-
-  .color {
-    background: #4285F4;
-    border-radius: 4px;
-  }
 </style>

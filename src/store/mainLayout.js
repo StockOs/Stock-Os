@@ -39,10 +39,9 @@ export default new Vuex.Store({
 
   getters: {
     getMenuItemsForRoute: (state) => {
-
       const currentPath = state.path
+
       return state.menuItems.map((menuItem) => {
-        console.log(menuItem)
         return {
           ...menuItem,
           selected: currentPath === menuItem.path,
