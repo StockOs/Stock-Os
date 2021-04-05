@@ -1,9 +1,10 @@
 <template>
   <div class="multiSelect">
+    <h3>{{ placeholder }}</h3>
     <div class="multiSelect-input" 
       @click.self="isFocused = !isFocused"
     >
-      <p
+      <div
         class="multiSelect-input-data"
         v-for="(option, i) in formattedData"
         :key="i"
@@ -11,21 +12,23 @@
         @click="handleOptions(i)"
       >
         {{ option[displayOption] }}
-      </p>
+        <span>x</span>
+      </div>
     </div>
     <div class="multiSelect-dropdown" v-if="isFocused">
-      <div class="multiSelect-option-container">
         <div 
           class="multiSelect-option"
-          :class="{'color' : option.checked}"
           v-for="(option, i) in formattedData"
           :key="i"
           @click="handleOptions(i)"
           >
+          <div 
+            class="multiSelect-option-checked"
+            :class="{'color' : option.checked}"
+          ></div>
           {{ option[displayOption] }}
         </div>
       </div>
-    </div>
   </div>
 </template>
 
@@ -67,8 +70,8 @@ export default {
   },
 
   methods: {
-    handleOptions(i){
-      let addValue = this.options[i][this.valueOption]
+    handleOptions(index){
+      let addValue = this.options[index][this.valueOption]
       let newValue = [...this.value]
       let findIndexOption = this.value.findIndex(val => val === addValue)
 
@@ -86,7 +89,7 @@ export default {
 
 <style lang="scss">
   .multiSelect {
-    width: 240px;
+    width: 200px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -96,43 +99,58 @@ export default {
     display: flex;
     flex-wrap: wrap;
     height: auto;
-    background: rgb(202, 202, 202);
     padding: 8px;
+    border-bottom: 2px solid grey;
+    width: 100%;
+  }
+
+  .multiSelect-input:hover{
+    background-color: rgb(240, 247, 255);
   }
 
   .multiSelect-input-data {
-    width: 4rem;
     padding: 0.4rem;
-    background-color: white;
+    background-color: #4285F4;
+    border-radius: 16px;
+    color: white;
     margin: 0 5px 5px; 
   }
 
   .multiSelect-dropdown {
-    height: 200px;
-    margin-top: 10px;
-    background: rgb(202, 202, 202);
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 16px;
   }
 
-  .multiSelect-option-container{
-    width: 90%;
-    overflow-Y: scroll;
-    padding: 8px;
-  }
+  // .multiSelect-option-container{
+  //   width: 100%;
+  //   overflow-Y: scroll;
+  //   padding: 8px;
+  // }
 
   .multiSelect-option {
+    display: flex;
     cursor: pointer;
     padding: 8px;
-    background-color: white;
-    margin-bottom: 8px;
-    width: auto;
     text-align: start;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(240, 247, 255);
+  }
+
+  .multiSelect-option:hover {
+    background-color: rgb(184, 224, 247);
+  }
+
+  .multiSelect-option-checked {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
   }
 
   .color {
-    color: red;
+    background: #4285F4;
+    border-radius: 4px;
   }
 </style>
