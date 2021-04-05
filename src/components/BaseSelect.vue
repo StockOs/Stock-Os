@@ -6,6 +6,7 @@
       @change="$emit('input', $event.target.value)"
       v-bind="$attrs"
       class="select-input"
+      required
     >
       <option 
         class="select-option"
@@ -13,7 +14,7 @@
         :key="i"
         :selected="option === value"
       >
-        {{ option.category }}
+        {{ option[optionLabel] }}
       </option>
     </select>
   </div>
@@ -27,13 +28,15 @@ export default {
       require: true,
     },
     value:{
-      type: String,
-      require: false,
+      default: () => []
     },
     options: {
-      type: Array,
-      require: true,
+      default: () => []
     },
+    optionLabel: {
+      type: String,
+      default: 'text'
+    }
   },
 }
 </script>
