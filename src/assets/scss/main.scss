@@ -1,8 +1,18 @@
 //Config
-@import '~/assets/scss/config/reset.css';
-@import '~/assets/scss/config/variables.scss';
-@import '~/assets/scss/config/global.scss';
-@import '~/assets/scss/config/screens.scss';
-@import '~/assets/scss/config/medias.scss';
+@import './config/reset.css';
+@import './config/variables.scss';
+@import './config/global.scss';
+@import './config/screens.scss';
+@import './config/medias.scss';
 
 //Styles
+@import './styles/texts.scss';
+@import './styles/colors.scss';
+@import './styles/commons.scss';
+
+//Components
+@import './styles/components/MENU_ITEM.scss';
+@import './styles/components/MENU_CONTENT.scss';
+
+//Layouts
+@import './styles/layouts/mainLayout.scss';

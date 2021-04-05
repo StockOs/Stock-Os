@@ -1,15 +1,15 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <BaseInput label="Prénom" v-model="firstname"/>
+    <BaseInput label="Prénom" v-model="firstname" />
     {{ firstname }}
-    <BaseCheckbox 
-      label="maison" 
+    <BaseCheckbox
+      label="maison"
       v-model="isHome"
     />
-    <BaseSelect 
-      label="Listes d'éléments" 
-      :items="categories" 
+    <BaseSelect
+      label="Listes d'éléments"
+      :items="categories"
       v-model="categories.category"
     />
   </div>

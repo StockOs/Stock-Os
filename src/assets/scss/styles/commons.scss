@@ -1,0 +1,38 @@
+//Flex
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+//Margin
+.margin-top-16 {
+  margin-top: 16px;
+}
+
+.margin-right-16 {
+  margin-right: 16px;
+}
+
+//Icons
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--black);
+}
+
+.icon-blue {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--primary-blue);
+  opacity: 1;
+}
+
+.main-content {
+  width: 100%;
+}
+
+.home {
+  height: 100%;
+  width: 100%;
+}
