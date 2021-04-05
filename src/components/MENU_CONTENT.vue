@@ -1,7 +1,7 @@
 <template>
-  <nav class="test">
+  <nav class="menu-nav">
     <ul role="menu">
-      <li role="none" v-for="item in menuItems" :key="item.name" class="a">
+      <li role="none" v-for="item in menuItems" :key="item.name">
         <MenuItem
           :name="item.name"
           :selected="item.selected"
@@ -13,23 +13,20 @@
     </ul>
 
     <div>
-
-        <MenuItem
-          name="Paramètres"
-          linkIconSvg="settings"
-          iconDescription="Paramètres"
-          @click="() => changePage('/settings')"
-        />
-
-      <button class="primary-blue" @click="logout">
-        Se déconnecter
-      </button>
+      <MenuItem
+        name="Paramètres"
+        :selected="false"
+        linkIconSvg="settings"
+        iconDescription="Paramètres"
+        @click="() => changePage('/settings')"
+      />
+      <button class="primary-blue" @click="logout">Se déconnecter</button>
     </div>
   </nav>
 </template>
 
 <script>
-import MenuItem from "./MENU_ITEM.vue";
+import MenuItem from "./MENU_ITEM.vue"
 
 export default {
   components: {
@@ -37,25 +34,16 @@ export default {
   },
   computed: {
     menuItems() {
-      return this.$store.mainLayout.getters.getMenuItemsForRoute;
+      return this.$store.mainLayout.getters.getMenuItemsForRoute
     }
   },
   methods: {
     changePage(path) {
-      return this.$store.mainLayout.commit("changePath", path);
+      return this.$store.mainLayout.commit("changePath", path)
     },
     logout() {
-      return this.$store.dispatch("mainLayout/logout");
+      return this.$store.dispatch("mainLayout/logout")
     }
   }
-};
-</script>
-
-<style lang="scss" scoped>
-.test {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
 }
-</style>
+</script>

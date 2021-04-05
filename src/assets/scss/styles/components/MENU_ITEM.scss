@@ -14,4 +14,10 @@
       stroke: var(--primary-blue);
     }
   }
+  &.selected {
+    color: var(--primary-blue);
+    & .icon {
+      stroke: var(--primary-blue);
+    }
+  }
 }

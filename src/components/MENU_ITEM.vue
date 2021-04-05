@@ -1,6 +1,6 @@
 <template>
   <a @click="$emit('click')">
-    <div class="item text-menu-item">
+    <div class="item text-menu-item" :class="['item',{'selected': selected}]">
       <BaseIcon
         class="icon margin-right-16"
         :href="linkIconSvg"
@@ -23,20 +23,20 @@ export default {
   props: {
     name: {
       type: String,
-      default: ""
+      default: "",
     },
     linkIconSvg: {
       type: String,
-      default: ""
+      default: "",
     },
     iconDescription: {
       type: String,
-      default: ""
+      default: "",
     },
     selected: {
       type: Boolean,
-      default: true
+      default: true,
     }
   }
-};
+}
 </script>
