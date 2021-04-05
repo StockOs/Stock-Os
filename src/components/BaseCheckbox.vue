@@ -1,12 +1,13 @@
 <template>
-  <div>
-    <label>{{ label }}</label>
+  <div class="checkbox-wrapper">
     <input 
+      class="checkbox-input"
       type="checkbox"
       v-bind="$attrs"
       :checked="value"
       @change="$emit('input', $event.target.checked)"
     >
+    <label class="checkbox-label">{{ label }}</label>
   </div>
 </template>
 
@@ -24,7 +25,3 @@ export default {
   },
 }
 </script>
-
-<style>
-
-</style>

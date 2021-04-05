@@ -1,12 +1,15 @@
 <template>
-  <div>
-    <label>{{ label }}</label>
-    <input 
-      type="text" 
+  <div class="base-input-container">
+    <input
+      class="base-input-data"
       :value="value"
       v-bind="$attrs"
       @input="$emit('input', $event.target.value)"
+      required
     >
+    <label class="base-input-label">
+      <span class="base-input-content">{{ label }}</span>
+    </label>
   </div>
 </template>
 
@@ -24,7 +27,3 @@ export default {
   },
 }
 </script>
-
-<style>
-
-</style>
