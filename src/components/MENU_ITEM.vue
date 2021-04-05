@@ -1,19 +1,17 @@
 <template>
-  <a @click="$emit('click')">
-    <div class="item text-menu-item" :class="['item',{'selected': selected}]">
-      <BaseIcon
-        class="icon margin-right-16"
-        :href="linkIconSvg"
-        :alt="iconDescription"
-        aria-hidden="true"
-      />
-      {{ name }}
-    </div>
+  <a @click="$emit('click')" :class="['item', { selected: selected }]">
+    <BaseIcon
+      class="icon margin-right-16"
+      :href="linkIconSvg"
+      :alt="iconDescription"
+      aria-hidden="true"
+    />
+    {{ name }}
   </a>
 </template>
 
 <script>
-import BaseIcon from "./icons/BaseIcon";
+import BaseIcon from "./icons/BaseIcon"
 
 export default {
   name: "MenuItem",

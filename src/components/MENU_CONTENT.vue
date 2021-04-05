@@ -16,7 +16,7 @@
       <MenuItem
         name="Paramètres"
         :selected="false"
-        linkIconSvg="settings"
+        linkIconSvg="#settings"
         iconDescription="Paramètres"
         @click="() => changePage('/settings')"
       />

@@ -1,5 +1,5 @@
 <template>
-  <div class="default-test">
+  <div class="default-layout">
     <h1>Bonjour</h1>
 
     <div>
@@ -9,7 +9,7 @@
 </template>
 
 <style lang="scss" scoped>
-.default-test {
+.default-layout {
   width: 100vw;
   height: 100vh;
 }
