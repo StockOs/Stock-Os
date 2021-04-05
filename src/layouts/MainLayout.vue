@@ -11,7 +11,6 @@
 
     <section class="main-content">
       <slot />
-      <!-- <router-view :to="newPath" /> -->
     </section>
   </div>
 </template>

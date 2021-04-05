@@ -12,6 +12,12 @@
       :items="categories"
       v-model="categories.category"
     />
+    <MultiSelect 
+      :options="categories"
+      display-option="category"
+      value-option="id"
+      v-model="ingredient"
+    />
   </div>
 </template>
 
@@ -19,6 +25,7 @@
   import BaseInput from '@/components/BaseInput.vue'
   import BaseCheckbox from '@/components/BaseCheckbox.vue'
   import BaseSelect from '@/components/BaseSelect.vue'
+  import MultiSelect from '@/components/MultiSelect.vue'
 
   export default {
     name: 'Home',
@@ -26,6 +33,7 @@
       BaseInput,
       BaseCheckbox,
       BaseSelect,
+      MultiSelect,
     },
     data:() => ({
       firstname: '',
@@ -35,7 +43,10 @@
         {id: 2, category: 'viande'},
         {id: 3, category: 'poisson'},
         {id: 4, category: 'légume'},
+        {id: 5, category: 'saumon'},
+        {id: 6, category: 'pesto'},
         ],
+      ingredient: [1 , 2, 3, 4],
     }),
   }
 </script>
