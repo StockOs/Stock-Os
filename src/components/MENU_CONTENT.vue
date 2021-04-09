@@ -34,15 +34,15 @@ export default {
   },
   computed: {
     menuItems() {
-      return this.$store.mainLayout.getters.getMenuItemsForRoute
+      return this.$store.mainLayout.getters.GET_MENU_ITEMS_FOR_ROUTE
     }
   },
   methods: {
     changePage(path) {
-      return this.$store.mainLayout.commit('changePath', path)
+      return this.$store.mainLayout.commit('CHANGE_PATH', path)
     },
     logout() {
-      return this.$store.mainLayout.dispatch('logout')
+      return this.$store.mainLayout.dispatch('LOGOUT')
     }
   }
 }

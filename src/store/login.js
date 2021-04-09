@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import firebase from '../firebase-config'
+import firebase from '../middlewares/firebase-config'
 import router from '../router/index'
 
 Vue.use(Vuex)
@@ -49,6 +49,7 @@ export default new Vuex.Store({
         .auth()
         .signInWithEmailAndPassword(user.email, user.password)
         .then(userData => {
+          commit('STOP_LOADING')
           const token = userData.user.refreshToken
           localStorage.setItem('user-token', token)
           commit('SET_TOKEN', token)
@@ -61,7 +62,6 @@ export default new Vuex.Store({
           commit('SET_ERRORS', true)
           localStorage.removeItem('user-token')
         })
-
     },
   }
 })

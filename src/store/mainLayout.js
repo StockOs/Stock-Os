@@ -30,6 +30,7 @@ const initialState = {
       path: '/delivery',
     },
   ],
+  errors: [],
 }
 
 export default new Vuex.Store({
@@ -39,7 +40,7 @@ export default new Vuex.Store({
   },
 
   getters: {
-    getMenuItemsForRoute: (state) => {
+    GET_MENU_ITEMS_FOR_ROUTE: (state) => {
       const currentPath = state.path
 
       return state.menuItems.map((menuItem) => {
@@ -51,19 +52,34 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    changePath: (state, path) => {
+    START_LOADING: (state) => {
+      state.isLoading = true
+    },
+    STOP_LOADING: (state) => {
+      state.isLoading = false
+    },
+    CHANGE_PATH: (state, path) => {
       state.path = path
       router.push(path)
+    },
+    SET_ERRORS: (state, errors) => {
+      state.errors = errors
     }
   },
   actions: {
-    logout: () => {
+    LOGOUT: ({ commit }) => {
+      commit('START_LOADING')
       firebase
         .auth()
         .signOut()
         .then(() => {
+          commit('STOP_LOADING')
           localStorage.removeItem('user-token')
           router.push('/login')
+        })
+        .catch((errors) => {
+          commit('STOP_LOADING')
+          commit('SET_ERRORS', errors.message)
         })
     },
   },
