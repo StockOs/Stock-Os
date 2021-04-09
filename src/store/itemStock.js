@@ -17,11 +17,18 @@ export default new Vuex.Store({
   },
 
   getters: {
+    displayStock:(state) => {
+      return state.itemsStock.map(el => el.item)
+    }
   },
   mutations: {
-    addItemStock(state){
-      state.itemsStock.push(state.item)
-      console.log(state.itemsStock)
+    ADD_ITEMS_STOCK:(state, {item}) => {
+      state.itemsStock.push({item})
+    },
+    RESET_INPUT_VALUE:(state) => {
+      state.item.name = ''
+      state.item.quantity = ''
+      state.item.price = ''
     }
   },
 

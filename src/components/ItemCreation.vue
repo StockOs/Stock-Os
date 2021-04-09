@@ -34,7 +34,15 @@ export default {
   },
   methods: {
     addItemStock() {
-      this.$emit('addItemStock', this.item)
+      const item = {
+        name: this.item.name,
+        quantity: this.item.quantity,
+        price: this.item.price,
+      }
+      if(this.item.name != "" && this.item.quantity != null  && this.item.price != null ){
+        this.$emit('addItemStock', {item})
+        this.$store.itemStock.commit("RESET_INPUT_VALUE", item)
+      }
     },
   }
 }
