@@ -19,8 +19,8 @@ export default new Vuex.Store({
   },
 
   getters: {
-    isAuthentificated: state => !!state.token,
-    authStatus: state => state.status,
+    IS_AUTHENTIFICATED: state => !!state.token,
+    AUTH_STATUS: state => state.status,
     HAS_LOGIN_ERRORS: (state) => {
       return state.errors
     }
@@ -33,7 +33,7 @@ export default new Vuex.Store({
     STOP_LOADING: (state) => {
       state.isLoading = false
     },
-    AUTH_SUCCESS: (state, token) => {
+    SET_TOKEN: (state, token) => {
       state.status = 'success'
       state.token = token
     },
@@ -43,22 +43,20 @@ export default new Vuex.Store({
   },
 
   actions: {
-    login: ({ commit }, { user }) => {
+    LOGIN: ({ commit }, { user }) => {
       commit('START_LOADING')
       firebase
         .auth()
         .signInWithEmailAndPassword(user.email, user.password)
-        .then(data => {
-          console.log('DATA', data.user.refreshToken)
-          const token = data.user.refreshToken
+        .then(userData => {
+          const token = userData.user.refreshToken
           localStorage.setItem('user-token', token)
-          commit('AUTH_SUCCESS', token)
+          commit('SET_TOKEN', token)
           router.replace({
             name: 'Home'
           })
         })
-        .catch((errors) => {
-          console.log('ERROR', errors.message)
+        .catch(() => {
           commit('STOP_LOADING')
           commit('SET_ERRORS', true)
           localStorage.removeItem('user-token')

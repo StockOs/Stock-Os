@@ -7,12 +7,17 @@
   margin-top: 10px;
   margin-bottom: 8px;
   border-radius: 8px;
-//padding 4
-//margin top 10
-// margin bottom 8
-//Border-radius: 8
   max-height: 24.5rem;
   border: 1px solid #DFDFDF;
   background-color: var(--pulp-white);
   width: 424px;
+}
+
+.error-message {
+  color: var(--error);
+  display: flex;
+  align-items:flex-start;
+  text-align: left;
+  font-size: 14px;
+  padding-top: 1rem;
 }
