@@ -10,6 +10,13 @@ const routes = [
     meta: { layout: "main" },
     component: require("../views/Home.vue").default
   },
+
+  {
+    path: '/stockCreation',
+    name: 'stockCreation',
+    meta: {requireAuth: true },
+    component: () => import('../views/StockCreation.vue')
+  },
 ]
 
 const router = new VueRouter({

@@ -1,7 +1,5 @@
 <template>
   <div class="default-layout">
-    <h1>Bonjour</h1>
-
     <div>
       <slot />
     </div>

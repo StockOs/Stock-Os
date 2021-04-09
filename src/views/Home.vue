@@ -9,7 +9,8 @@
     />
     <BaseSelect
       label="Listes d'éléments"
-      :items="categories"
+      :options="categories"
+      option-label="category"
       v-model="categories.category"
     />
     <MultiSelect 
@@ -18,6 +19,7 @@
       value-option="id"
       v-model="ingredient"
     />
+
   </div>
 </template>
 
@@ -46,7 +48,7 @@
         {id: 5, category: 'saumon'},
         {id: 6, category: 'pesto'},
         ],
-      ingredient: [1 , 2, 3, 4],
+      ingredient: [1],
     }),
   }
 </script>
