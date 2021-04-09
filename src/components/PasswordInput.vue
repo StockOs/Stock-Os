@@ -1,14 +1,15 @@
 <template>
   <div class="base-input-container" :class="{ 'input-error': error }">
-    <input
-      class="base-input-data"
-      :value="value"
-      v-bind="$attrs"
-      :placeholder="placeholder"
-      @input="$emit('input', $event.target.value)"
-      required
-    >
-    <label class="base-input-label">
+      <input
+        class="base-input-data"
+        :placeholder="placeholder"
+        :value="value"
+        type="password"
+        v-bind="$attrs"
+        required
+        @input="$emit('input', $event.target.value)"
+      >
+      <label class="base-input-label">
       <span class="base-input-content">{{ label }}</span>
     </label>
   </div>
@@ -23,11 +24,11 @@ export default {
     },
     value: {
       type: [String, Number],
-      require: true,
+      default: '',
     },
     placeholder: {
       type: String,
-      require: true,
+      default: '',
     },
     error: {
       type: Boolean,

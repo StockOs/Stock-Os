@@ -56,6 +56,10 @@
   transform: translateX(0%);
 }
 
+.input-error label {
+  border-bottom: 1px solid var(--error);
+}
+
 
 
 
