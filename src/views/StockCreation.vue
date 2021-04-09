@@ -2,34 +2,27 @@
   <main>
     <h1>Création du stock</h1>
     <div class="content">
-    <ItemCreation @addItemStock='emitItemStock'/>
-    <div class="table">
-      <p v-for="(item,i) in items" :key="i">
-        {{ item.name }}
-        {{ item.quantity }}
-        {{ item.price }}
-      </p>
-    </div>
+      <ItemCreation @addItemStock='emitItemStock'/>
+      <div class="table">
+      <StockDisplayTable/>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
   import ItemCreation from '@/components/ItemCreation.vue'
+  import StockDisplayTable from '@/components/StockDisplayTable.vue'
 
 
   export default {
     components: {
       ItemCreation,
-    },
-    computed: {
-      items() {
-        return this.$store.itemStock.state.itemsStock
-      },
+      StockDisplayTable
     },
     methods: {
       emitItemStock(item) {
-        return this.$store.itemStock.commit("addItemStock", item)
+        this.$store.itemStock.commit("ADD_ITEMS_STOCK", item)
       }
     }
   }
