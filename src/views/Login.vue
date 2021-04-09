@@ -1,41 +1,58 @@
 <template>
   <div class="container">
-    <form id="login-form" class="login-container" @submit.prevent="submitLogin">
-      <h1>Connectez-vous</h1>
-      <div>
+    <form id="login-form" class="login-container" @submit.prevent="submitLogin()">
+      <h1 class="title-name">Connectez-vous</h1>
+
         <BaseInput
           v-model="email"
-          label="text input"
-          placeholder="Email"
+          label="Email"
           required
           class="margin-top-16"
           :error="showErrorMessage"
         />
-      </div>
-      <div>
-        <PasswordInput
+
+        <BaseInput
           v-model="password"
-          idForLabel="password input"
-          placeholder="Password"
+          type="password"
+          label="Password"
           required
           class="margin-top-16"
           :error="showErrorMessage"
         />
-      </div>
-      <button>Connexion</button>
-      <p>Inscrivez-vous</p>
+
+      <button form="login-form">Connexion</button>
+      <a href="#" class="primary-blue">Inscrivez-vous</a>
     </form>
   </div>
 </template>
 
 <script>
 import BaseInput from "../components/BaseInput"
-import PasswordInput from "../components/PasswordInput"
 
 export default {
   components: {
     BaseInput,
-    PasswordInput,
+  },
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  computed: {
+    showErrorMessage () {
+      console.log(this.$store.login.getters.HAS_LOGIN_ERRORS);
+      return this.$store.login.getters.HAS_LOGIN_ERRORS
+    },
+  },
+  methods: {
+    submitLogin() {
+      const user = {
+        email : this.email,
+        password: this.password
+      }
+        this.$store.login.dispatch('login', { user })
+    }
   }
 }
 </script>

@@ -39,10 +39,10 @@ export default {
   },
   methods: {
     changePage(path) {
-      return this.$store.mainLayout.commit("changePath", path)
+      return this.$store.mainLayout.commit('changePath', path)
     },
     logout() {
-      return this.$store.dispatch("mainLayout/logout")
+      return this.$store.mainLayout.dispatch('logout')
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="base-input-container">
+  <div class="base-input-container" :class="{ 'input-error': error }">
     <input
       class="base-input-data"
       :value="value"
@@ -28,7 +28,10 @@ export default {
     placeholder: {
       type: String,
       require: true,
-    }
+    },
+    error: {
+      type: Boolean,
+    },
   },
 }
 </script>

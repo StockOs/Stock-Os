@@ -1,19 +1,15 @@
 <template>
   <div class="form-input">
-    <span
-      class="input input-password"
-      :class="{ 'input-error': error }"
-    >
       <input
         :id="idForLabel"
-        class="width-full input"
+        class="input"
+        :class="{ 'input-error': error }"
         :placeholder="placeholder"
         :value="value"
         type="password"
         :required="required"
         @input="$emit('input', $event.target.value)"
       >
-    </span>
   </div>
 </template>
 

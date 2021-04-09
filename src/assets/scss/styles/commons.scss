@@ -51,24 +51,17 @@
 //Input
 .input {
   width: 100%;
-  padding: 4px;
+  padding: 0.813rem;
   border-radius: 8px;
   background-color: var(--input-background);
   border: 1px solid transparent;
   font-size: 14px;
+  &::placeholder {
+    color: var(--primary-blue);
+  }
   &:focus {
     outline: none;
-    border: 1px solid #1954EE;
-  }
-}
-
-.input-error {
-  border: 2px solid var(--pulp-error);
-}
-
-.input-password {
-  &:focus-within {
-    border: 2px solid var(--primary-blue);
+    border: 1px solid var(--primary-blue);
   }
 }
 

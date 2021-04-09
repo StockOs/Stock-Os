@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router/index'
+import firebase from 'firebase'
 
 Vue.use(Vuex)
 
@@ -55,11 +56,15 @@ export default new Vuex.Store({
       router.push(path)
     }
   },
-
   actions: {
     logout: () => {
-      //Add Remove Token LocalStorage
-      this.$router.push('/login')
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          localStorage.removeItem('user-token')
+          router.push('/login')
+        })
     },
   },
 })
