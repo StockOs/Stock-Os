@@ -3,7 +3,7 @@
     <form
       id="sign-up-form"
       class="sign-up-container"
-      @submit.prevent="submitsignup()"
+      @submit.prevent="submitSignup()"
     >
       <h1 class="title-name">Inscrivez-vous</h1>
 
@@ -20,7 +20,7 @@
         label="Email"
         required
         class="margin-top-16"
-        :error="showErrorMessage"
+        :error="showEmailErrorMessage"
       />
 
       <PasswordInput
@@ -56,22 +56,29 @@ export default {
   },
   data() {
     return {
+      companyName: '',
       email: "",
       password: ""
     }
   },
   computed: {
-    // showErrorMessage() {
-    //   return this.$store.signup.getters.HAS_SIGNUP_ERRORS
-    // }
+    showErrorMessage() {
+      console.log(this.$store.signUp.getters.HAS_SIGNUP_ERRORS, 'fshjsj')
+      return this.$store.signUp.getters.HAS_SIGNUP_ERRORS
+    },
+    showEmailErrorMessage() {
+      console.log(this.$store.signUp.getters. HAS_SIGN_UP_EMAIL_ERRORS, 'fshjsj')
+      return this.$store.signUp.getters. HAS_SIGN_UP_EMAIL_ERRORS
+    }
   },
   methods: {
     submitSignup() {
       const user = {
+      //  companyName: this.companyName,
         email: this.email,
         password: this.password
       }
-      this.$store.signup.dispatch('SIGNUP', { user })
+      this.$store.signUp.dispatch('SIGN_UP', { user })
     }
   }
 }
