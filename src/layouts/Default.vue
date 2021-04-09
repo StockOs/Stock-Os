@@ -1,11 +1,8 @@
 <template>
-  <div class="layout">
-
-<section class="main-content">
-<slot/>
-</section>
-
-
+  <div class="default-layout">
+    <div>
+      <slot />
+    </div>
   </div>
 </template>
 
