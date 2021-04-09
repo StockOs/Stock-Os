@@ -1,11 +1,19 @@
 <template>
   <div class="container">
     <form
-      id="login-form"
-      class="login-container"
-      @submit.prevent="submitLogin()"
+      id="sign-up-form"
+      class="sign-up-container"
+      @submit.prevent="submitsignup()"
     >
-      <h1 class="title-name">Connectez-vous</h1>
+      <h1 class="title-name">Inscrivez-vous</h1>
+
+      <BaseInput
+        v-model="companyName"
+        label="Nom de l'entreprise"
+        required
+        class="margin-top-16"
+        :error="showErrorMessage"
+      />
 
       <BaseInput
         v-model="email"
@@ -25,13 +33,13 @@
 
       <div v-if="showErrorMessage" class="error-message">
         <p>
-          Nous n'avons pas trouvé de compte correspondant. Veuillez vérifier
-          votre e-mail et votre mot de passe et réessayer.
+          Il y a une erreur.
         </p>
       </div>
 
-      <button form="login-form">Connexion</button>
-      <a href="#" class="primary-blue">Inscrivez-vous</a>
+      <button form="sign-up-form">Inscrivez-vous</button>
+      <p>Vous avez déjà un compte ?</p>
+      <a href="/login" class="primary-blue">Connectez-vous</a>
     </form>
   </div>
 </template>
@@ -41,7 +49,7 @@ import BaseInput from '../components/BaseInput'
 import PasswordInput from '../components/PasswordInput'
 
 export default {
-  name:'Login',
+  name: 'SignUp',
   components: {
     BaseInput,
     PasswordInput
@@ -53,17 +61,17 @@ export default {
     }
   },
   computed: {
-    showErrorMessage() {
-      return this.$store.login.getters.HAS_LOGIN_ERRORS
-    }
+    // showErrorMessage() {
+    //   return this.$store.signup.getters.HAS_SIGNUP_ERRORS
+    // }
   },
   methods: {
-    submitLogin() {
+    submitSignup() {
       const user = {
         email: this.email,
         password: this.password
       }
-      this.$store.login.dispatch('LOGIN', { user })
+      this.$store.signup.dispatch('SIGNUP', { user })
     }
   }
 }
