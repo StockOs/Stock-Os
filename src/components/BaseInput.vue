@@ -22,7 +22,7 @@ export default {
       require: true,
     },
     value: {
-      type: [String, Number, Array],
+      type: [String, Number],
       require: true,
     },
     placeholder: {

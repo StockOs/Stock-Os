@@ -12,7 +12,6 @@
         label="Nom de l'entreprise"
         required
         class="margin-top-16"
-        :error="showErrorMessage"
       />
 
       <BaseInput
@@ -20,7 +19,7 @@
         label="Email"
         required
         class="margin-top-16"
-        :error="showEmailErrorMessage"
+        :error="showErrorMessageBoolean"
       />
 
       <PasswordInput
@@ -28,12 +27,12 @@
         label="Password"
         required
         class="margin-top-16"
-        :error="showErrorMessage"
+        :error="showErrorMessageBoolean"
       />
 
       <div v-if="showErrorMessage" class="error-message">
         <p>
-          Il y a une erreur.
+          {{ showErrorMessage }}
         </p>
       </div>
 
@@ -58,23 +57,23 @@ export default {
     return {
       companyName: '',
       email: "",
-      password: ""
+      password: "",
     }
   },
   computed: {
     showErrorMessage() {
-      console.log(this.$store.signUp.getters.HAS_SIGNUP_ERRORS, 'fshjsj')
-      return this.$store.signUp.getters.HAS_SIGNUP_ERRORS
+      return this.$store.signUp.getters.HAS_SIGN_UP_ERRORS.message
+        ? this.$store.signUp.getters.HAS_SIGN_UP_ERRORS_MESSAGE
+        : ''
     },
-    showEmailErrorMessage() {
-      console.log(this.$store.signUp.getters. HAS_SIGN_UP_EMAIL_ERRORS, 'fshjsj')
-      return this.$store.signUp.getters. HAS_SIGN_UP_EMAIL_ERRORS
+    showErrorMessageBoolean() {
+      return this.$store.signUp.getters.HAS_SIGN_UP_ERRORS.message ? true : false
     }
   },
   methods: {
     submitSignup() {
       const user = {
-      //  companyName: this.companyName,
+       companyName: this.companyName,
         email: this.email,
         password: this.password
       }
