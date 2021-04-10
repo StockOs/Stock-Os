@@ -21,7 +21,6 @@ const routes = [
     name: 'SignUp',
     component: require("../views/SignUp.vue").default
   },
-
   {
     path: '/stockCreation',
     name: 'stockCreation',
