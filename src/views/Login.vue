@@ -41,6 +41,7 @@ import BaseInput from '../components/BaseInput'
 import PasswordInput from '../components/PasswordInput'
 
 export default {
+  name:'Login',
   components: {
     BaseInput,
     PasswordInput
