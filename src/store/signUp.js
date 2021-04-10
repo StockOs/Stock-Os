@@ -17,10 +17,10 @@ export default new Vuex.Store({
   },
 
   getters: {
-    HAS_SIGN_UP_ERRORS: (state) => {
+    hasSignUpErrors: (state) => {
       return state.errors
     },
-    HAS_SIGN_UP_ERRORS_MESSAGE: (state) => {
+    hasSignUpErrorsMessage: (state) => {
       return state.errors.message
     },
   },

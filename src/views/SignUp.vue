@@ -62,12 +62,12 @@ export default {
   },
   computed: {
     showErrorMessage() {
-      return this.$store.signUp.getters.HAS_SIGN_UP_ERRORS.message
-        ? this.$store.signUp.getters.HAS_SIGN_UP_ERRORS_MESSAGE
+      return this.$store.signUp.getters.hasSignUpErrors.message
+        ? this.$store.signUp.getters.hasSignUpErrorsMessage
         : ''
     },
     showErrorMessageBoolean() {
-      return this.$store.signUp.getters.HAS_SIGN_UP_ERRORS.message ? true : false
+      return this.$store.signUp.getters.hasSignUpErrors.message ? true : false
     }
   },
   methods: {
