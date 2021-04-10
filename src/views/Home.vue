@@ -7,7 +7,8 @@
     <BaseCheckbox label="maison" v-model="isHome" />
     <BaseSelect
       label="Listes d'éléments"
-      :items="categories"
+      :options="categories"
+      option-label="category"
       v-model="categories.category"
     />
     <MultiSelect
@@ -27,6 +28,7 @@ import BaseSelect from "@/components/BaseSelect.vue"
 import MultiSelect from "@/components/MultiSelect.vue"
 import CardMoneySaved from '@/components/CardMoneySaved.vue'
 
+<<<<<<< HEAD
 export default {
   name: "Home",
   components: {
@@ -52,4 +54,28 @@ export default {
     timeUnit: 'Mois',
   })
 }
+=======
+  export default {
+    name: 'Home',
+    components: {
+      BaseInput,
+      BaseCheckbox,
+      BaseSelect,
+      MultiSelect,
+    },
+    data:() => ({
+      firstname: '',
+      isHome: true,
+      categories: [
+        {id: 1, category: 'fruit'},
+        {id: 2, category: 'viande'},
+        {id: 3, category: 'poisson'},
+        {id: 4, category: 'légume'},
+        {id: 5, category: 'saumon'},
+        {id: 6, category: 'pesto'},
+        ],
+      ingredient: [1],
+    }),
+  }
+>>>>>>> 90f1993... ADD ItemCreation component and StockCreation views
 </script>

@@ -1,0 +1,14 @@
+.form {
+  width: 430px;
+  height: 100%;
+  min-height: 530px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--white);
+}
+
+.buttonForm {
+  align-self: flex-end;
+}
