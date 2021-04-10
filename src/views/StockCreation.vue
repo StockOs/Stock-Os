@@ -1,10 +1,10 @@
 <template>
-  <main>
-    <h1>Création du stock</h1>
-    <div class="content">
-      <ItemCreation @addItemStock='emitItemStock'/>
-      <div class="table">
-      <StockDisplayTable/>
+  <main class="poppins">
+    <div class="container">
+      <h1 class="stock-title subtitle">Création du stock</h1>
+      <div class="content">
+        <ItemCreation @addItemStock='emitItemStock'/>
+        <StockDisplayTable/>
       </div>
     </div>
   </main>
@@ -27,26 +27,3 @@
     }
   }
 </script>
-
-<style>
-  body {
-    background-color: var(--background-light-blue);
-  }
-
-  h1 {
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  .table {
-    width: 580px;
-    height: 525px;
-    background-color: darkgray;
-  }
-
-</style>

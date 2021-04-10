@@ -1,20 +1,23 @@
 <template>
-  <table>
-    <thead>
-      <tr>
-        <th>Nom de l'item</th>
-        <th>Quantité</th>
-        <th>Prix</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="(item, index) in items" :key="index">
-        <td>{{ item.name }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.price }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="stockTable">
+    <table>
+      <thead class="stockTable-header">
+        <tr>
+          <th>Nom de l'item</th>
+          <th>Quantité</th>
+          <th>Prix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="stockTable-item" v-for="(item, index) in items" :key="index">
+          <td>{{ item.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="validate">Valider</button>
+  </div>
 </template>
 
 <script>
@@ -32,7 +35,3 @@ export default {
   },
 }
 </script>
-
-<style>
-
-</style>

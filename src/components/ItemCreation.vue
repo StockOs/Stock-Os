@@ -1,6 +1,6 @@
 <template>
-  <div class="form">
-    <h2>Ajoutez vos Items</h2>
+  <form class="form" @submit.prevent="addItemStock()">
+    <h2 class="uppercase-text">Ajoutez vos Items</h2>
     <BaseInput 
       label="Items" 
       v-model="item.name"
@@ -16,8 +16,8 @@
       v-model="item.price"
     />
 
-    <button @click="addItemStock()">Ajouter un item</button>
-  </div>
+    <button class="buttonForm" type="submit">Ajouter un item</button>
+  </form>
 </template>
 
 <script>
@@ -47,20 +47,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .form {
-    width: 430px;
-    height: 100%;
-    min-height: 530px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: var(--white);
-  }
-
-  button {
-    align-self: flex-end;
-  }
-</style>
