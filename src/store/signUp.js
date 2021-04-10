@@ -46,7 +46,9 @@ export default new Vuex.Store({
         .then(userData => {
           userData.user
             .updateProfile({
-              displayName: this.form.name
+              displayName: user.name,
+              email: userData.email,
+              password: userData.password
             })
           commit('STOP_LOADING')
           router.replace({name: 'Login'})

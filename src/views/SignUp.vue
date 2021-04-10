@@ -56,8 +56,8 @@ export default {
   data() {
     return {
       companyName: '',
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     }
   },
   computed: {
