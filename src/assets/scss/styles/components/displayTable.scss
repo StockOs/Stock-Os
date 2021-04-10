@@ -1,0 +1,45 @@
+.stockTable {
+  width: 40%;
+  height: 530px;
+  background-color: var(--white);
+  position: relative;
+}
+
+table {
+  width: 100%;
+  height: auto;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+}
+
+th {
+  width: 100%;
+  padding: var(--padding-16);
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+tr {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stockTable-item {
+  margin-top: 16px;
+}
+
+td {
+  text-align: left;
+  width: 20%;
+  font-size: 1.125rem;
+  font-weight: 400;
+} 
+
+.validate {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
