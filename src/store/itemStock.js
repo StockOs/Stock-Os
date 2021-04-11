@@ -25,10 +25,15 @@ export default new Vuex.Store({
     ADD_ITEMS_STOCK:(state, {item}) => {
       state.itemsStock.push({item})
     },
+
     RESET_INPUT_VALUE:(state) => {
       state.item.name = ''
       state.item.quantity = ''
       state.item.price = ''
+    },
+
+    DELETE_ITEMS_STOCK:(state, index) => {
+      state.itemsStock.splice(index, 1)
     }
   },
 
