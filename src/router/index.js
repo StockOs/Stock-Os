@@ -33,6 +33,12 @@ const routes = [
     meta: {layout: "main" ,requireAuth: true },
     component: () => import('../views/Stock.vue')
   },
+  {
+    path: '/item/:itemUid',
+    name: 'item',
+    meta: {requireAuth: true },
+    component: () => import('../views/_id/Item.vue')
+  },
 ]
 
 const router = new VueRouter({
