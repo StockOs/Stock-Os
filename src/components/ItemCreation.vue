@@ -2,16 +2,19 @@
   <form class="form" @submit.prevent="addItemStock()">
     <h2 class="uppercase-text">Ajoutez vos Items</h2>
     <BaseInput 
+      :class="{'input-stock-dash': isStockIsInDash}"
       label="Items" 
       v-model="item.name"
     />
     
     <BaseInput 
+      :class="{'input-stock-dash': isStockIsInDash}"
       label="Quantité" 
       v-model="item.quantity"
     />
 
     <BaseInput 
+      :class="{'input-stock-dash': isStockIsInDash}"
       label="Prix a l'unité" 
       v-model="item.price"
     />
@@ -24,6 +27,12 @@
 import BaseInput from '@/components/BaseInput.vue'
 
 export default {
+  props:{
+    isStockIsInDash:{
+      type: Boolean,
+      default: false
+    }
+  },
   components: {
     BaseInput,
   },

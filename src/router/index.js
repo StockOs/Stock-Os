@@ -27,6 +27,12 @@ const routes = [
     meta: {requireAuth: true },
     component: () => import('../views/StockCreation.vue')
   },
+  {
+    path: '/stock',
+    name: 'stock',
+    meta: {layout: "main" ,requireAuth: true },
+    component: () => import('../views/Stock.vue')
+  },
 ]
 
 const router = new VueRouter({

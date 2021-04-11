@@ -17,7 +17,7 @@ const initialState = {
     {
       name: 'Stocks',
       icon: 'stocks',
-      path: '/test',
+      path: '/stock',
     },
     {
       name: 'Commandes',
