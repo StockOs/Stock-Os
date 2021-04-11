@@ -75,7 +75,7 @@ export default new Vuex.Store({
         .then(() => {
           commit('STOP_LOADING')
           localStorage.removeItem('user-token')
-          router.push('/login')
+          router.replace('/login')
         })
         .catch((errors) => {
           commit('STOP_LOADING')
