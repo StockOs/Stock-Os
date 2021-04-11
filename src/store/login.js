@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 const initialState = {
   isLoading: false,
-  token: localStorage.getItem('user-token') || '',
+  token: localStorage.getItem('user-token') || null,
   status: '',
   errors: false,
 }

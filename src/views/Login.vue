@@ -31,7 +31,7 @@
       </div>
 
       <button form="login-form">Connexion</button>
-      <a href="#" class="primary-blue">Inscrivez-vous</a>
+      <a href="/signup" class="primary-blue">Inscrivez-vous</a>
     </form>
   </div>
 </template>
