@@ -41,30 +41,3 @@
     }
   }
 </script>
-
-<style>
-  .stock {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100%;
-  }
-
-  .stock-Table {
-    width: 80%;
-  }
-
-  .itemCrea {
-    border-radius: var(--border-radius);
-    flex-direction: row;
-    min-height: auto;
-    padding: var(--padding-16);
-    background-color: #E1ECF6;
-    width: 80%
-  }
-
-  .itemCrea > h2 {
-    display: none;
-  }
-</style>
