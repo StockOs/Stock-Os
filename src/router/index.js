@@ -39,7 +39,7 @@ const routes = [
     component: () => import('../views/Stock.vue')
   },
   {
-    path: '/item/:itemUid',
+    path: '/item/:itemId',
     name: 'item',
     meta: {requireAuth: true },
     component: () => import('../views/_id/Item.vue')

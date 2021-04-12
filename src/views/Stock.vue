@@ -38,7 +38,7 @@
       },
 
       editItem(){
-        open(this.$router.resolve({name: "item", params: { itemUid: 'ef544s56' },}).href, "_blank");
+        open(this.$router.resolve({name: "item", params: { itemId: 'ef544s56' },}).href, "_blank");
       }
     }
   }
