@@ -1,9 +1,9 @@
 <template>
   <section class="stock">
     <ItemCreation 
-      class="itemCrea" 
-      @addItemStock='emitItemStock' 
-      :isStockIsInDash="true"
+      class="itemCreationDashboardStock" 
+      @addItemStock='addItemStock' 
+      :inputIsInStockDash="true"
     />
     <StockDisplayTable class="stock-Table">
       <template v-slot:actionsTitle>
@@ -29,7 +29,7 @@
       BaseIcon
     },
     methods: {
-      emitItemStock(item) {
+      addItemStock(item) {
         this.$store.itemStock.commit("ADD_ITEMS_STOCK", item)
       },
 

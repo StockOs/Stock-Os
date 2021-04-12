@@ -35,13 +35,12 @@ const routes = [
   {
     path: '/stock',
     name: 'stock',
-    meta: {layout: "main" ,requireAuth: true },
+    meta: {layout: "main"},
     component: () => import('../views/Stock.vue')
   },
   {
     path: '/item/:itemId',
     name: 'item',
-    meta: {requireAuth: true },
     component: () => import('../views/_id/Item.vue')
   },
 ]
@@ -53,7 +52,6 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(store.login.state.token)
   if (to.matched.some(record => !record.meta.public)) {
     if (store.login.state.token != null) {
       next()
