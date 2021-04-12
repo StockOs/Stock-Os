@@ -10,8 +10,8 @@
         <th>actions</th>
       </template>
       <template v-slot:actions>
-        <button @click="editItem()">edit</button>
-        <button @click="deleteItemStock()">delete</button>
+        <BaseIcon @click="editItem()" href="pencil" class="edit-icon"/>
+        <BaseIcon @click="deleteItemStock()" href="delete" class="delete-icon"/>
       </template>
     </StockDisplayTable>
   </section>
@@ -20,11 +20,13 @@
 <script>
   import ItemCreation from '@/components/ItemCreation.vue'
   import StockDisplayTable from '@/components/StockDisplayTable.vue'
+  import BaseIcon from '@/components/icons/BaseIcon.vue'
 
   export default {
     components: {
       ItemCreation,
-      StockDisplayTable
+      StockDisplayTable,
+      BaseIcon
     },
     methods: {
       emitItemStock(item) {
