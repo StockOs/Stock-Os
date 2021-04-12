@@ -12,6 +12,12 @@ const routes = [
     component: require("../views/Home.vue").default
   },
   {
+    path: '/settings',
+    name: 'settings',
+    meta: { layout: "main" },
+    component: () => import('../views/Settings.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
     meta: {
