@@ -22,3 +22,27 @@
 .itemCrea > h2 {
   display: none;
 }
+
+.edit-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: all .3s ease;
+  fill: var(--grey-disabled);
+
+  &:hover {
+    fill: var(--primary-blue);
+  }
+}
+
+.delete-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: all .3s ease;
+  fill: var(--grey-disabled);
+  
+  &:hover {
+    fill: var(--error);
+  }
+}
