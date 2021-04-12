@@ -6,6 +6,7 @@
           <th>Nom de l'item</th>
           <th>Quantité</th>
           <th>Prix</th>
+          <slot name="actionsTitle"></slot>
         </tr>
       </thead>
       <tbody>
@@ -13,6 +14,7 @@
           <td>{{ item.name }}</td>
           <td>{{ item.quantity }}</td>
           <td>{{ item.price }}</td>
+          <slot name="actions"></slot>
         </tr>
       </tbody>
     </table>
