@@ -3,7 +3,7 @@
     <div class="container">
       <h1 class="stock-title subtitle">Création du stock</h1>
       <div class="content">
-        <ItemCreation @addItemStock='emitItemStock'/>
+        <ItemCreation @addItemStock='addItemStock'/>
         <StockDisplayTable/>
       </div>
     </div>
@@ -20,10 +20,13 @@
       ItemCreation,
       StockDisplayTable
     },
+      mounted(){
+      this.$store.itemStock.dispatch("getItems");
+    },
     methods: {
-      emitItemStock(item) {
-        this.$store.itemStock.commit("ADD_ITEMS_STOCK", item)
-      }
+      addItemStock(item) {
+        this.$store.itemStock.dispatch('postItems', item)
+      },
     }
   }
 </script>

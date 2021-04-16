@@ -10,7 +10,7 @@
         <th>actions</th>
       </template>
       <template v-slot:actions="slotProps">
-        <BaseIcon @click="editItem(slotProps.items)" href="pencil" class="edit-icon"/>
+        <BaseIcon @click="editItem(slotProps)" href="pencil" class="edit-icon"/>
         <BaseIcon @click="deleteItemStock()" href="delete" class="delete-icon"/>
       </template>
     </StockDisplayTable>
@@ -40,9 +40,9 @@
         this.$store.itemStock.commit("DELETE_ITEMS_STOCK")
       },
 
-      editItem(id){
-        console.log(id)
-        open(this.$router.resolve({name: "item", params: { itemId: id },}).href, "_blank");
+      editItem(keyId){
+        console.log(keyId)
+        open(this.$router.resolve({name: "item", params: { itemId: keyId },}).href, "_blank");
       }
     }
   }

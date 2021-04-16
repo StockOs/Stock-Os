@@ -14,7 +14,7 @@
           <td>{{ item.name }}</td>
           <td>{{ item.quantity }}</td>
           <td>{{ item.price }}</td>
-          <slot name="actions" :items="items"></slot>
+          <slot name="actions" :items="items.findIndex((el, index) => el.keyItem == items[index].keyItem )"></slot>
         </tr>
       </tbody>
     </table>
