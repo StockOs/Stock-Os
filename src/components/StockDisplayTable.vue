@@ -14,7 +14,7 @@
           <td>{{ item.name }}</td>
           <td>{{ item.quantity }}</td>
           <td>{{ item.price }}</td>
-          <slot name="actions"></slot>
+          <slot name="actions" :items="items"></slot>
         </tr>
       </tbody>
     </table>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+
 export default {
   props:{
     label:{

@@ -51,6 +51,6 @@ export default {
     ingredient: [1, 2, 3, 4],
     moneySaved: 40,
     timeUnit: 'Mois',
-  })
+  }),
 }
 </script>

@@ -9,8 +9,8 @@
       <template v-slot:actionsTitle>
         <th>actions</th>
       </template>
-      <template v-slot:actions>
-        <BaseIcon @click="editItem()" href="pencil" class="edit-icon"/>
+      <template v-slot:actions="slotProps">
+        <BaseIcon @click="editItem(slotProps.items)" href="pencil" class="edit-icon"/>
         <BaseIcon @click="deleteItemStock()" href="delete" class="delete-icon"/>
       </template>
     </StockDisplayTable>
@@ -28,17 +28,21 @@
       StockDisplayTable,
       BaseIcon
     },
+    mounted(){
+      this.$store.itemStock.dispatch("getItems");
+    },
     methods: {
       addItemStock(item) {
-        this.$store.itemStock.commit("ADD_ITEMS_STOCK", item)
+        this.$store.itemStock.dispatch('postItems', item)
       },
 
       deleteItemStock() {
         this.$store.itemStock.commit("DELETE_ITEMS_STOCK")
       },
 
-      editItem(){
-        open(this.$router.resolve({name: "item", params: { itemId: 'ef544s56' },}).href, "_blank");
+      editItem(id){
+        console.log(id)
+        open(this.$router.resolve({name: "item", params: { itemId: id },}).href, "_blank");
       }
     }
   }
