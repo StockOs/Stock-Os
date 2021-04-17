@@ -19,8 +19,6 @@ export default new Vuex.Store({
 
   getters: {
     displayStock:(state) => {
-      // return state.itemsStock.map(el => el.item)
-      // console.log(state.itemsStock)
       return state.itemsStock
     }
   },
@@ -29,8 +27,9 @@ export default new Vuex.Store({
       state.itemsStock = itemsStock
     },
 
-    POST_ITEMS_STOCK:(state, {item}) => {
-      state.itemsStock.push(item)
+    POST_ITEMS_STOCK:(state) => {
+      state.itemsStock.push(state.item)
+      document.location.reload();
     },
 
     RESET_INPUT_VALUE:(state) => {
@@ -40,7 +39,8 @@ export default new Vuex.Store({
     },
 
     DELETE_ITEMS_STOCK:(state, index) => {
-      state.itemsStock.splice(index, 1)
+      state.itemsStock.splice(index, 0)
+      document.location.reload();
     }
   },
 
@@ -55,21 +55,36 @@ export default new Vuex.Store({
       })
     },
 
-    postItems({state, commit}, item) {
-        axios.post('http://localhost:3000/api/items', {
-          name: state.item.name,
-          quantity: state.item.quantity,
-          price: state.item.price
-        },{
+    postItems({state, commit}) {
+      axios.post('http://localhost:3000/api/items', {
+        name: state.item.name,
+        quantity: state.item.quantity,
+        price: state.item.price
+      },{
+      headers:{
+          "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
+        },
+      }).then(res => {
+        commit('POST_ITEMS_STOCK', res.data.data)
+      })
+    },
+
+    deleteItems({state, commit}, index){
+      let keyItem = 0
+      for (let index = 0; index < state.itemsStock.length; index++) {
+        keyItem = state.itemsStock[index].keyItem;
+      }
+
+        axios.delete('http://localhost:3000/api/items/' + keyItem, {
         headers:{
             "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
           },
         }).then(res => {
-          item = res.data.data
-          commit('POST_ITEMS_STOCK', item)
-          console.log(localStorage.getItem('user-token'))
-        })
-      }
+          commit('DELETE_ITEMS_STOCK', res.data.data, index)
+          console.log('keyItem',keyItem)
+      })
+    }
   },
+
 
 })
