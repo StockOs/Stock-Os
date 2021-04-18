@@ -48,7 +48,6 @@ export default {
       deleteItemStock(index) {
         // this.$store.itemStock.commit("DELETE_ITEMS_STOCK")
         this.$store.itemStock.dispatch('deleteItems', index)
-        console.log(index)
       },
 
       editItem(keyId){

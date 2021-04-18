@@ -29,7 +29,7 @@ export default new Vuex.Store({
 
     POST_ITEMS_STOCK:(state) => {
       state.itemsStock.push(state.item)
-      document.location.reload();
+      document.location.reload(); 
     },
 
     RESET_INPUT_VALUE:(state) => {
@@ -81,7 +81,6 @@ export default new Vuex.Store({
           },
         }).then(res => {
           commit('DELETE_ITEMS_STOCK', res.data.data, index)
-          console.log('keyItem',keyItem)
       })
     }
   },
