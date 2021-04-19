@@ -6,7 +6,8 @@
           <th>Nom de l'item</th>
           <th>Quantité</th>
           <th>Prix</th>
-          <slot name="actionsTitle"></slot>
+          <th>Actions</th>
+          <!-- <slot name="actionsTitle"></slot> -->
         </tr>
       </thead>
       <tbody>
@@ -14,7 +15,9 @@
           <td>{{ item.name }}</td>
           <td>{{ item.quantity }}</td>
           <td>{{ item.price }}</td>
-          <slot name="actions"></slot>
+          <!-- <slot name="actions" :items="items" :index="index"></slot> -->
+        <BaseIcon @click="editItem(item.keyItem)" href="pencil" class="edit-icon"/>
+        <BaseIcon @click="deleteItemStock(index)" href="delete" class="delete-icon"/>
         </tr>
       </tbody>
     </table>
@@ -23,7 +26,12 @@
 </template>
 
 <script>
+  import BaseIcon from '@/components/icons/BaseIcon.vue'
+
 export default {
+  components: {
+    BaseIcon
+  },
   props:{
     label:{
       type: String,
@@ -35,5 +43,16 @@ export default {
       return this.$store.itemStock.getters.displayStock
     },
   },
+
+  methods:{
+      deleteItemStock(index) {
+        // this.$store.itemStock.commit("DELETE_ITEMS_STOCK")
+        this.$store.itemStock.dispatch('deleteItems', index)
+      },
+
+      editItem(keyId){
+        open(this.$router.resolve({name: "item", params: { itemId: keyId },}).href, "_blank");
+      }
+  }
 }
 </script>

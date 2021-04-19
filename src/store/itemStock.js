@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -13,17 +14,22 @@ export default new Vuex.Store({
       quantity: null,
       price: null,  
     },
-    itemsStock: []
+    itemsStock: [],
   },
 
   getters: {
     displayStock:(state) => {
-      return state.itemsStock.map(el => el.item)
+      return state.itemsStock
     }
   },
   mutations: {
-    ADD_ITEMS_STOCK:(state, {item}) => {
-      state.itemsStock.push({item})
+    ADD_ITEMS_STOCK:(state, itemsStock) => {
+      state.itemsStock = itemsStock
+    },
+
+    POST_ITEMS_STOCK:(state) => {
+      state.itemsStock.push(state.item)
+      document.location.reload(); 
     },
 
     RESET_INPUT_VALUE:(state) => {
@@ -33,10 +39,54 @@ export default new Vuex.Store({
     },
 
     DELETE_ITEMS_STOCK:(state, index) => {
-      state.itemsStock.splice(index, 1)
+      state.itemsStock.splice(index, 0)
+      document.location.reload();
     }
   },
 
   actions: {
+    getItems({commit}) {
+      axios.get('http://localhost:3000/api/items', {
+      headers:{
+          "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
+        },
+      }).then(res => {
+        const items =  res.data.data
+        commit('ADD_ITEMS_STOCK', items)
+      })
+    },
+
+    postItems({state, commit}) {
+      axios.post('http://localhost:3000/api/items', {
+        name: state.item.name,
+        quantity: state.item.quantity,
+        price: state.item.price
+      },{
+      headers:{
+          "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
+        },
+      }).then(res => {
+        const item = res.data.data
+        commit('POST_ITEMS_STOCK', item)
+      })
+    },
+
+    deleteItems({state, commit}, index){
+      let keyItem = 0
+      for (let index = 0; index < state.itemsStock.length; index++) {
+        keyItem = state.itemsStock[index].keyItem;
+      }
+
+        axios.delete('http://localhost:3000/api/items/' + keyItem, {
+        headers:{
+            "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
+          },
+        }).then(res => {
+          const item = res.data.data
+          commit('DELETE_ITEMS_STOCK', item, index)
+      })
+    }
   },
+
+
 })

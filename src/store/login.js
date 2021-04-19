@@ -50,7 +50,7 @@ export default new Vuex.Store({
         .signInWithEmailAndPassword(user.email, user.password)
         .then(userData => {
           commit('STOP_LOADING')
-          const token = userData.user.refreshToken
+          const token = userData.user.za
           localStorage.setItem('user-token', token)
           commit('SET_TOKEN', token)
           router.replace({

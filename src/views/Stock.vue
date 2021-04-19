@@ -9,10 +9,10 @@
       <template v-slot:actionsTitle>
         <th>actions</th>
       </template>
-      <template v-slot:actions>
-        <BaseIcon @click="editItem()" href="pencil" class="edit-icon"/>
-        <BaseIcon @click="deleteItemStock()" href="delete" class="delete-icon"/>
-      </template>
+      <!-- <template v-slot:actions="slotProps">
+        <BaseIcon @click="editItem(slotProps)" href="pencil" class="edit-icon"/>
+        <BaseIcon @click="deleteItemStock(slotProps.index)" href="delete" class="delete-icon"/>
+      </template> -->
     </StockDisplayTable>
   </section>
 </template>
@@ -20,26 +20,29 @@
 <script>
   import ItemCreation from '@/components/ItemCreation.vue'
   import StockDisplayTable from '@/components/StockDisplayTable.vue'
-  import BaseIcon from '@/components/icons/BaseIcon.vue'
+  // import BaseIcon from '@/components/icons/BaseIcon.vue'
 
   export default {
-    components: {
-      ItemCreation,
-      StockDisplayTable,
-      BaseIcon
-    },
-    methods: {
-      addItemStock(item) {
-        this.$store.itemStock.commit("ADD_ITEMS_STOCK", item)
+      components: {
+        ItemCreation,
+        StockDisplayTable,
+        // BaseIcon
+      },
+      mounted(){
+        this.$store.itemStock.dispatch("getItems");
       },
 
-      deleteItemStock() {
-        this.$store.itemStock.commit("DELETE_ITEMS_STOCK")
+      computed:{
+        item(){
+          return this.$store.itemStock.state.itemsStock
+        }
       },
 
-      editItem(){
-        open(this.$router.resolve({name: "item", params: { itemId: 'ef544s56' },}).href, "_blank");
-      }
+      methods: {
+
+      addItemStock() {
+        this.$store.itemStock.dispatch('postItems')
+      },
     }
   }
 </script>
