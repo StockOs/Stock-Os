@@ -51,7 +51,8 @@ export default new Vuex.Store({
           "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
         },
       }).then(res => {
-        commit('ADD_ITEMS_STOCK', res.data.data)
+        const items =  res.data.data
+        commit('ADD_ITEMS_STOCK', items)
       })
     },
 
@@ -65,7 +66,8 @@ export default new Vuex.Store({
           "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
         },
       }).then(res => {
-        commit('POST_ITEMS_STOCK', res.data.data)
+        const item = res.data.data
+        commit('POST_ITEMS_STOCK', item)
       })
     },
 
@@ -80,7 +82,8 @@ export default new Vuex.Store({
             "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
           },
         }).then(res => {
-          commit('DELETE_ITEMS_STOCK', res.data.data, index)
+          const item = res.data.data
+          commit('DELETE_ITEMS_STOCK', item, index)
       })
     }
   },

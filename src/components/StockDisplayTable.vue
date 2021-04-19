@@ -51,7 +51,6 @@ export default {
       },
 
       editItem(keyId){
-        console.log(keyId)
         open(this.$router.resolve({name: "item", params: { itemId: keyId },}).href, "_blank");
       }
   }
