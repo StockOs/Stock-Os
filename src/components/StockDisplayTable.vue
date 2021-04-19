@@ -47,14 +47,14 @@ export default {
   },
 
   methods:{
-      deleteItemStock(index) {
-        // this.$store.itemStock.commit("DELETE_ITEMS_STOCK")
-        this.$store.itemStock.dispatch('deleteItems', index)
-      },
+    deleteItemStock(index) {
+      // this.$store.itemStock.commit("DELETE_ITEMS_STOCK")
+      this.$store.itemStock.dispatch('deleteItems', index)
+    },
 
-      editItem(keyId){
-        open(this.$router.resolve({name: "item", params: { itemId: keyId },}).href, "_blank");
-      }
+    editItem(keyId){
+      open(this.$router.resolve({name: "item", params: { itemId: keyId },}).href, "_blank");
+    }
   }
 }
 </script>

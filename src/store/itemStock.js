@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import router from '../router/index'
+
+
+
 
 Vue.use(Vuex)
 
@@ -10,7 +14,7 @@ export default new Vuex.Store({
 
   state: {
     item: {
-      name: '',
+      name: "",
       quantity: null,
       price: null,  
     },
@@ -20,11 +24,24 @@ export default new Vuex.Store({
   getters: {
     displayStock:(state) => {
       return state.itemsStock
-    }
+    },
+
+    displayItemStock:(state) => {
+      console.log('getter', state.item)
+      return state.item
+    },
   },
   mutations: {
     ADD_ITEMS_STOCK:(state, itemsStock) => {
       state.itemsStock = itemsStock
+    },
+
+    ADD_ITEM_STOCK:(state, item) => {
+      state.item = item
+    },
+
+    UPDATE_ITEM_STOCK:(state, {item}) => {
+      state.item = item
     },
 
     POST_ITEMS_STOCK:(state) => {
@@ -56,6 +73,19 @@ export default new Vuex.Store({
       })
     },
 
+    getItem({commit}) {
+      const keyItem = router.app._routerRoot._route.params.itemId
+
+      axios.get('http://localhost:3000/api/items/' + keyItem,{
+      headers:{
+          "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
+        },
+      }).then(res => {
+        const itemKey =  res.data.data
+        commit('ADD_ITEM_STOCK', itemKey)
+      })
+    },
+
     postItems({state, commit}) {
       axios.post('http://localhost:3000/api/items', {
         name: state.item.name,
@@ -68,6 +98,23 @@ export default new Vuex.Store({
       }).then(res => {
         const item = res.data.data
         commit('POST_ITEMS_STOCK', item)
+      })
+    },
+
+    updateItems({state, commit}) {
+      const keyItem = router.app._routerRoot._route.params.itemId
+
+      axios.put('http://localhost:3000/api/items/' + keyItem, {
+        name: state.item != "" ? state.item : undefined,
+        // quantity: state.item.quantity,
+        // price: state.item.price
+      },{
+      headers:{
+          "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
+        },
+      }).then(res => {
+        const itemUpdate = res.data.data
+        commit('UPDATE_ITEMS_STOCK', itemUpdate)
       })
     },
 
