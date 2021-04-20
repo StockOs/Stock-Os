@@ -88,7 +88,7 @@ import BaseButton from '@/components/BaseButton'
 export default {
   components: {
    BaseButton,
-export default {
+  },
   mounted(){
     this.$store.userInfo.dispatch('getUser')
   },
