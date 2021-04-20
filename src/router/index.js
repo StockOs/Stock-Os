@@ -49,6 +49,11 @@ const routes = [
     name: 'item',
     component: () => import('../views/_id/Item.vue')
   },
+  {
+    path: '/status',
+    name: 'status',
+    component: () => import('../views/Status.vue')
+  },
 ]
 
 const router = new VueRouter({

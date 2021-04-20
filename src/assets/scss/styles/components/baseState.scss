@@ -1,0 +1,41 @@
+.state {
+    margin-top: 60px;
+    width: 100%;
+    .container-circle-state {   
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    .circle-state {
+        border: 1px solid #C4C4C4;
+        border-radius: 100px;
+        width: 10px;
+        height: 10px;
+        background-color: #79E7D4;
+    }
+    .circle-5 {
+        background-color: #ECD34E;
+    }
+    .circle-state .hover-degradation, .circle-state .hover-down{
+        position:absolute;   
+        margin-top:23px;
+        margin-left:-35px;   
+        color:white;
+        background: var(--primary-blue);
+        padding:15px;
+        border-radius:3px;
+        box-shadow:0 0 2px var(--primary-blue);
+        transform:scale(0);  
+        text-align: center;
+        line-height: 1cm;     
+        transition:all .25s;
+        opacity: 0.8;
+    }
+    .circle-5:hover .hover-degradation, .circle-5:focus .hover-degradation, .circle-23:hover .hover-down, .circle-23:focus .hover-down{
+        transform:scale(1);        
+   }
+    .circle-23 {
+        background-color: red;
+    }
+    }
+}
