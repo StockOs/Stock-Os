@@ -1,21 +1,19 @@
 <template>
   <form class="form" @submit.prevent="updateItem()">
-    <div class="form-container" v-for="(items,i) in items" :key="i">
       <h2 class="uppercase-text">Modifier l'item</h2>
       <BaseInput 
         label="Nom de 'item" 
-        v-model="items.name"
+        v-model="name"
       />
       <BaseInput 
         label="Quantité" 
-        v-model="items.quantity"
+        v-model="quantity"
       />
       <BaseInput 
         label="Prix" 
-        v-model="items.price"
+        v-model="price"
       />
       <button type="submit">Valider</button>
-    </div>
   </form>
 </template>
 
@@ -32,13 +30,40 @@ export default {
 
   computed: {
     items() {
-      return this.$store.itemStock.getters.displayItemStock
+      return this.$store.itemStock.state.item
+    },
+
+    name: {
+      get () {
+        return this.$store.itemStock.state.item.name
+      },
+      set (value) {
+        this.$store.itemStock.commit('UPDATE_NAME', value)
+      },
+    },
+
+    price: {
+      get () {
+        return this.$store.itemStock.state.item.price
+      },
+      set (value) {
+        this.$store.itemStock.commit('UPDATE_PRICE', value)
+      },
+    },
+
+    quantity: {
+      get () {
+        return this.$store.itemStock.state.item.quantity
+      },
+      set (value) {
+        this.$store.itemStock.commit('UPDATE_QUANTITY', value)
+      },
     },
   },
 
   methods: {
     updateItem(){
-      this.$store.itemStock.dispatch('updateItems')
+      this.$store.itemStock.dispatch('updateItem')
     }
   }
   

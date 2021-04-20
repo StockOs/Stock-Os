@@ -17,7 +17,7 @@
           <td>{{ item.price }}</td>
           <!-- <slot name="actions" :items="items" :index="index"></slot> -->
         <BaseIcon @click="editItem(item.keyItem)" href="pencil" class="edit-icon"/>
-        <BaseIcon @click="deleteItemStock(index)" href="delete" class="delete-icon"/>
+        <BaseIcon @click="deleteItemStock(item.keyItem)" href="delete" class="delete-icon"/>
         </tr>
       </tbody>
     </table>
@@ -40,6 +40,9 @@ export default {
       require: true,
     },
   },
+    mounted(){
+    this.$store.itemStock.dispatch("getItems");
+  },
   computed: {
     items() {
       return this.$store.itemStock.getters.displayStock
@@ -47,9 +50,9 @@ export default {
   },
 
   methods:{
-    deleteItemStock(index) {
-      // this.$store.itemStock.commit("DELETE_ITEMS_STOCK")
-      this.$store.itemStock.dispatch('deleteItems', index)
+    deleteItemStock(keyItem) {
+      console.log('delete from stockDisplay', keyItem)
+      this.$store.itemStock.dispatch('deleteItems', keyItem)
     },
 
     editItem(keyId){
