@@ -6,7 +6,6 @@
       v-bind="$attrs"
       :placeholder="placeholder"
       @input="$emit('input', $event.target.value)"
-      required
     >
     <label class="base-input-label">
       <span class="base-input-content">{{ label }}</span>
