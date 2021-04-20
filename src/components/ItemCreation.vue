@@ -19,12 +19,13 @@
       v-model="item.price"
     />
 
-    <button class="buttonForm" type="submit">Ajouter un item</button>
+    <BaseButton class="buttonForm" type="submit">Ajouter un item</BaseButton>
   </form>
 </template>
 
 <script>
 import BaseInput from '@/components/BaseInput.vue'
+import BaseButton from '@/components/BaseButton'
 
 export default {
   props:{
@@ -35,6 +36,7 @@ export default {
   },
   components: {
     BaseInput,
+    BaseButton,
   },
   computed: {
     item() {

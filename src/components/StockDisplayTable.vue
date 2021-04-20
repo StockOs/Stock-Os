@@ -21,16 +21,18 @@
         </tr>
       </tbody>
     </table>
-    <button class="validate">Valider</button>
+    <BaseButton class="validate">Valider</BaseButton>
   </div>
 </template>
 
 <script>
   import BaseIcon from '@/components/icons/BaseIcon.vue'
+  import BaseButton from '@/components/BaseButton'
 
 export default {
   components: {
-    BaseIcon
+    BaseIcon,
+    BaseButton,
   },
   props:{
     label:{

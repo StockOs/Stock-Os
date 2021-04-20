@@ -20,17 +20,19 @@
         iconDescription="Paramètres"
         @click="() => changePage('/settings')"
       />
-      <button class="primary-blue" @click="logout">Se déconnecter</button>
+      <BaseButton class="primary-blue" @click="logout">Se déconnecter</BaseButton>
     </div>
   </nav>
 </template>
 
 <script>
 import MenuItem from "./MENU_ITEM.vue"
+import BaseButton from './BaseButton'
 
 export default {
   components: {
-    MenuItem
+    MenuItem,
+    BaseButton
   },
   computed: {
     menuItems() {

@@ -29,8 +29,9 @@
           votre e-mail et votre mot de passe et réessayer.
         </p>
       </div>
-
-      <button form="login-form">Connexion</button>
+      <div>
+         <BaseButton form="login-form">Connexion</BaseButton>
+      </div>
       <a href="/signup" class="primary-blue">Inscrivez-vous</a>
     </form>
   </div>
@@ -39,12 +40,14 @@
 <script>
 import BaseInput from '../components/BaseInput'
 import PasswordInput from '../components/PasswordInput'
+import BaseButton from '../components/BaseButton'
 
 export default {
   name:'Login',
   components: {
     BaseInput,
-    PasswordInput
+    PasswordInput,
+    BaseButton
   },
   data() {
     return {
