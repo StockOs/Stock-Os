@@ -35,8 +35,9 @@
           {{ showErrorMessage }}
         </p>
       </div>
-
-      <button form="sign-up-form">Inscrivez-vous</button>
+      <div>
+        <BaseButton form="sign-up-form">Inscription</BaseButton>
+      </div>
       <p>Vous avez déjà un compte ?</p>
       <a href="/login" class="primary-blue">Connectez-vous</a>
     </form>
@@ -46,12 +47,14 @@
 <script>
 import BaseInput from '../components/BaseInput'
 import PasswordInput from '../components/PasswordInput'
+import BaseButton from '../components/BaseButton'
 
 export default {
   name: 'SignUp',
   components: {
     BaseInput,
-    PasswordInput
+    PasswordInput,
+    BaseButton,
   },
   data() {
     return {

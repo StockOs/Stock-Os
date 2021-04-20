@@ -79,3 +79,9 @@ a {
 hr {
   border-top: 1.5px solid var(--primary-blue);
 }
+
+.button-placement-section-action {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+}

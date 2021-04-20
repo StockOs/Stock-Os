@@ -42,14 +42,20 @@
     <hr>
     <div class="account-actions-section">
       <h2 class="uppercase-text action-title">ACTIONS DU COMPTE</h2>
-      <button>Annuler l'abonnement</button>
-      <button>Supprimer son compte</button>
+      <div class="button-placement-section-action">
+        <BaseButton>Annuler l'abonnement</BaseButton>
+        <BaseButton>Supprimer son compte</BaseButton>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {
+import BaseButton from '@/components/BaseButton'
 
+export default {
+  components: {
+   BaseButton,
+  }
 }
 </script>
