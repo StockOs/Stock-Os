@@ -53,6 +53,9 @@ const routes = [
     path: '/status',
     name: 'status',
     component: () => import('../views/Status.vue')
+    path: '/user/:userId',
+    name: 'user',
+    component: () => import('../views/_id/User.vue')
   },
 ]
 
