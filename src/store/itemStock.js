@@ -35,10 +35,6 @@ export default new Vuex.Store({
       state.itemsStock = itemsStock
     },
 
-    // ADD_ITEM_STOCK:(state, item) => {
-    //   state.item = item
-    // },
-
     POST_ITEMS_STOCK:(state) => {
       state.itemsStock.push(state.item)
       document.location.reload();
@@ -91,19 +87,6 @@ export default new Vuex.Store({
         commit('ADD_ITEMS_STOCK', items)
       })
     },
-
-    // getItem({commit}) {
-    //   const keyItem = router.app._routerRoot._route.params.itemId
-
-    //   axios.get('http://localhost:3000/api/items/' + keyItem,{
-    //   headers:{
-    //       "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
-    //     },
-    //   }).then(res => {
-    //     const itemKey =  res.data.data
-    //     commit('ADD_ITEM_STOCK', itemKey)
-    //   })
-    // },
 
     getItem({commit}) {
       const keyItem = router.app._routerRoot._route.params.itemId
@@ -160,22 +143,6 @@ export default new Vuex.Store({
       })
     },
 
-    // updateItems({state}) {
-    //   const keyItem = router.app._routerRoot._route.params.itemId
-
-    //   axios.put('http://localhost:3000/api/items/' + keyItem, {
-    //     name: state.item != "" ? state.item : undefined,
-    //     // quantity: state.item.quantity,
-    //     // price: state.item.price
-    //   },{
-    //   headers:{
-    //       "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
-    //     },
-    //   }).then(res => {
-    //     console.log(res.data.data)
-    //   })
-    // },
-
     deleteItems({ commit },keyItem){
         axios.delete('http://localhost:3000/api/items/' + keyItem, {
         headers:{
@@ -187,6 +154,4 @@ export default new Vuex.Store({
       })
     }
   },
-
-
 })

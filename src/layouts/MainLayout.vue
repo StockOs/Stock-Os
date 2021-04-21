@@ -2,8 +2,7 @@
   <div class="layout background-white">
     <div class="flex-column nav-width menu-content">
       <div class="header flex-column">
-        <h1 class="title-name">Nom du restaurant</h1>
-        <h2 class="subtitle-address">Adresse du restaurant</h2>
+        <h1 class="title-name">{{ this.$store.userInfo.userInfos.name }}</h1>
       </div>
 
       <MenuContent />
