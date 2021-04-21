@@ -74,9 +74,7 @@ router.beforeEach((to, from, next) => {
       return
     }
     next({name: "Login"})
-  } else if (to.matched.some(record => record.meta.public) && store.login.state.token) {
-    next('/home')
-  } else {
+  }else {
     next()
   }
 })

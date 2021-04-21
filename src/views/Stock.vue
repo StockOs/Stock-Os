@@ -23,23 +23,13 @@
   // import BaseIcon from '@/components/icons/BaseIcon.vue'
 
   export default {
-      components: {
-        ItemCreation,
-        StockDisplayTable,
-        // BaseIcon
-      },
-      mounted(){
-        this.$store.itemStock.dispatch("getItems");
-      },
+    components: {
+      ItemCreation,
+      StockDisplayTable,
+      // BaseIcon
+    },
 
-      computed:{
-        item(){
-          return this.$store.itemStock.state.itemsStock
-        }
-      },
-
-      methods: {
-
+    methods: {
       addItemStock() {
         this.$store.itemStock.dispatch('postItems')
       },
