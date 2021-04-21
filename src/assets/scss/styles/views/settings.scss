@@ -90,8 +90,13 @@ hr {
   border-top: 1.5px solid var(--primary-blue);
 }
 
-.button-placement-section-action {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 3rem;
+.button-delete {
+  margin-left: 16px;
+  background-color: var(--error);
 }
+
+// .button-placement-section-action {
+//   display: flex;
+//   justify-content: space-around;
+//   margin-top: 3rem;
+// }

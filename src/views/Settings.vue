@@ -26,6 +26,7 @@
                 <h4 class="h4-title">{{ users.email }}</h4>
               </div>
               <a 
+                @click="editUser(users.id)"
                 target="blank"
                 >modifier
               </a>
@@ -34,9 +35,9 @@
               <div>
                 <h3 class="h3-title">Information bancaire:</h3>
                 <h4 class="h4-title">{{ users.bankCard }}</h4>
-                <p>Prochaine date de facturation: 25 avril 2021</p>
               </div>
-              <a 
+              <a
+                @click="editUser(users.id)"
                 target="blank"
                 >modifier
               </a>
@@ -56,27 +57,11 @@
         <hr>
         <div class="account-actions-section">
           <h2 class="uppercase-text action-title">ACTIONS DU COMPTE</h2>
-          <button>Annuler l'abonnement</button>
-          <button>Supprimer son compte</button>
+          <div class="button-placement-section-action">
+            <BaseButton>Annuler l'abonnement</BaseButton>
+            <BaseButton class="button-delete">Supprimer son compte</BaseButton>
+          </div>
         </div>
-      </div>
-    </div>
-    <br>
-    <hr>
-    <div class="account-forfait-section">
-      <h2 class="uppercase-text">DETAILS DU FORFAIT</h2>
-      <div class="account-forfait-section-info">
-        <h3 class="h4-title">Premium</h3>
-        <a href="#">Changer de forfait</a>
-      </div>
-    </div>
-    <br>
-    <hr>
-    <div class="account-actions-section">
-      <h2 class="uppercase-text action-title">ACTIONS DU COMPTE</h2>
-      <div class="button-placement-section-action">
-        <BaseButton>Annuler l'abonnement</BaseButton>
-        <BaseButton>Supprimer son compte</BaseButton>
       </div>
     </div>
   </section>

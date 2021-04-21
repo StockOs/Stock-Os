@@ -12,6 +12,24 @@ const routes = [
     component: require("../views/Home.vue").default
   },
   {
+    path: '/stock',
+    name: 'stock',
+    meta: {layout: "main"},
+    component: () => import('../views/Stock.vue')
+  },
+  {
+    path: '/orders',
+    name: 'orders',
+    meta: { layout: "main" },
+    component: () => import('../views/Orders.vue')
+  },
+  {
+    path: '/delivery',
+    name: 'delivery',
+    meta: { layout: "main" },
+    component: () => import('../views/Delivery.vue')
+  },
+  {
     path: '/settings',
     name: 'settings',
     meta: { layout: "main" },
@@ -37,12 +55,6 @@ const routes = [
     path: '/stockCreation',
     name: 'stockCreation',
     component: () => import('../views/StockCreation.vue')
-  },
-  {
-    path: '/stock',
-    name: 'stock',
-    meta: {layout: "main"},
-    component: () => import('../views/Stock.vue')
   },
   {
     path: '/item/:itemId',
