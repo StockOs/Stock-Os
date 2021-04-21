@@ -1,6 +1,6 @@
 <template>
   <form class="form" @submit.prevent="submit()">
-    <h2 class="uppercase-text">Modifier les Information <br> de votre compte</h2>
+    <h2 class="uppercase-text">Modifier les Informations <br> de votre compte</h2>
     <BaseInput 
       label="Nom de l'entreprise" 
       v-model="name"
@@ -13,15 +13,18 @@
       label="Information bancaire" 
       v-model="bankCard"
     />
-    <button type="submit">Valider</button>
+    <BaseButton type="submit">Valider</BaseButton>
   </form>
 </template>
 
 <script>
 import BaseInput from '@/components/BaseInput.vue'
+import BaseButton from '@/components/BaseButton.vue'
+
 export default {
   components:{
     BaseInput,
+    BaseButton
   },
   mounted(){
     this.$store.userInfo.dispatch('getUser')

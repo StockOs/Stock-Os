@@ -13,15 +13,17 @@
         label="Prix" 
         v-model="price"
       />
-      <button type="submit">Valider</button>
+      <BaseButton type="submit">Valider</BaseButton>
   </form>
 </template>
 
 <script>
 import BaseInput from '@/components/BaseInput.vue'
+import BaseButton from '@/components/BaseButton.vue'
 export default {
   components:{
     BaseInput,
+    BaseButton
   },
   
   mounted(){

@@ -57,7 +57,6 @@ export default new Vuex.Store({
           "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
         },
       }).then(res => {
-        console.log(res.data.data)
         const user_id =  res.data.data[0].id
         commit('GET_USER_ID', user_id)
 
