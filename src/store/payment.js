@@ -14,16 +14,20 @@ export default new Vuex.Store({
       expYear: null,
       codeCVC: null,
     },
+    isPopUpDisplayed: true,
   },
 
   getters: {
   },
 
   mutations: {
+    DISPLAY_POPUP: (state) => {
+      state.isPopUpDisplayed = true
+    }
   },
 
   actions: {
-    ADD_PAYMENT({ state }) {
+    ADD_PAYMENT({ state, commit }) {
       console.log('ADD_PAYMENT')
       axios.post('http://localhost:3000/api/payment', {
         name: state.paymentInformations.name,
@@ -36,7 +40,7 @@ export default new Vuex.Store({
           "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
         },
       }).then(res => {
-        console.log(res)
+        commit('DISPLAY_POPUP')
         res.status()
       }).catch((error) => {
         console.log('error', error)
