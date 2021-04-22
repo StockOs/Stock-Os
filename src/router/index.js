@@ -36,6 +36,11 @@ const routes = [
     component: () => import('../views/Settings.vue')
   },
   {
+    path: '/subscription',
+    name: 'subscription',
+    component: () => import('../views/Subscription.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
     meta: {
