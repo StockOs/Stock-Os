@@ -1,15 +1,20 @@
 <template>
-  <button class="button-test" v-on="$listeners">
-      <slot/>
+  <button
+    class="base-button"
+    v-on="$listeners"
+    v-if="isButtonDisplayed"
+  >
+    <slot/>
   </button>
 </template>
 
 <script>
 export default {
-
+  props: {
+    isButtonDisplayed: {
+      type: Boolean,
+      default: true,
+    },
+  }
 }
 </script>
-
-<style>
- 
-</style>

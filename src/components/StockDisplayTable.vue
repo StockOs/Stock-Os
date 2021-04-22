@@ -7,7 +7,6 @@
           <th>Quantité</th>
           <th>Prix</th>
           <th>Actions</th>
-          <!-- <slot name="actionsTitle"></slot> -->
         </tr>
       </thead>
       <tbody>
@@ -15,19 +14,24 @@
           <td>{{ item.name }}</td>
           <td>{{ item.quantity }}</td>
           <td>{{ item.price }}</td>
-          <!-- <slot name="actions" :items="items" :index="index"></slot> -->
-        <BaseIcon @click="editItem(item.keyItem)" href="pencil" class="edit-icon"/>
-        <BaseIcon @click="deleteItemStock(item.keyItem)" href="delete" class="delete-icon"/>
+          <BaseIcon @click="editItem(item.keyItem)" href="pencil" class="edit-icon"/>
+          <BaseIcon @click="deleteItemStock(item.keyItem)" href="delete" class="delete-icon"/>
         </tr>
       </tbody>
     </table>
-    <BaseButton class="validate">Valider</BaseButton>
+    <BaseButton
+      class="validate"
+      @click="redirectionToDashboardStock"
+      v-if="isRouteisStockCreation"
+    >
+      Valider
+    </BaseButton>
   </div>
 </template>
 
 <script>
-  import BaseIcon from '@/components/icons/BaseIcon.vue'
-  import BaseButton from '@/components/BaseButton'
+import BaseIcon from '@/components/icons/BaseIcon.vue'
+import BaseButton from '@/components/BaseButton'
 
 export default {
   components: {
@@ -47,6 +51,9 @@ export default {
     items() {
       return this.$store.itemStock.getters.displayStock
     },
+    isRouteisStockCreation() {
+      return this.$router.currentRoute.path == '/stockCreation'
+    }
   },
 
   methods:{
@@ -57,6 +64,10 @@ export default {
 
     editItem(keyId){
       open(this.$router.resolve({name: "item", params: { itemId: keyId },}).href, "_blank");
+    },
+
+    redirectionToDashboardStock() {
+      this.$router.push('/stock')
     }
   }
 }

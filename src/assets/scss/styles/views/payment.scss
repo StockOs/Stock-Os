@@ -1,0 +1,74 @@
+.section {
+  height: 100vh;
+}
+
+.container-card-and-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
+}
+
+.step-payment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  padding: 16px;
+}
+
+.form-payment {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.card-informations {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button-size {
+  align-self: flex-end;
+  width: 20%;
+}
+
+.popup {
+  position: absolute;
+  margin: auto;
+  height: 332px;
+  width: 332px;
+  padding: 8px;
+  background-color: var(--white);
+  border-radius: 8px;
+  z-index: 1;
+  overflow-y: auto;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 16px -2px rgba(66, 134, 244, 0.4);
+}
+
+.popup-icon {
+  height: 32px;
+  width: 32px;
+}
+
+.popup-text {
+  margin-top: 8px;
+}
+
+.input-width-payment {
+  width: 100%;
+}

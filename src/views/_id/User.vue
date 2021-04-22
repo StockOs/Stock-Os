@@ -1,16 +1,16 @@
 <template>
-  <form class="form" @submit.prevent="submit()">
+  <form class="form-user" @submit.prevent="submit()">
     <h2 class="uppercase-text">Modifier les Informations <br> de votre compte</h2>
-    <BaseInput 
-      label="Nom de l'entreprise" 
+    <BaseInput
+      label="Nom de l'entreprise"
       v-model="name"
     />
-      <BaseInput 
-      label="Email de l'entreprise" 
+      <BaseInput
+      label="Email de l'entreprise"
       v-model="email"
     />
-    <BaseInput 
-      label="Information bancaire" 
+    <BaseInput
+      label="Information bancaire"
       v-model="bankCard"
     />
     <BaseButton type="submit">Valider</BaseButton>

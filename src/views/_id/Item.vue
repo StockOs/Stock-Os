@@ -1,16 +1,16 @@
 <template>
-  <form class="form" @submit.prevent="updateItem()">
+  <form class="form-item" @submit.prevent="updateItem()">
       <h2 class="uppercase-text">Modifier l'item</h2>
-      <BaseInput 
-        label="Nom de 'item" 
+      <BaseInput
+        label="Nom de l'item"
         v-model="name"
       />
-      <BaseInput 
-        label="Quantité" 
+      <BaseInput
+        label="Quantité"
         v-model="quantity"
       />
-      <BaseInput 
-        label="Prix" 
+      <BaseInput
+        label="Prix"
         v-model="price"
       />
       <BaseButton type="submit">Valider</BaseButton>
@@ -25,7 +25,7 @@ export default {
     BaseInput,
     BaseButton
   },
-  
+
   mounted(){
     this.$store.itemStock.dispatch("getItem");
   },
@@ -68,20 +68,6 @@ export default {
       this.$store.itemStock.dispatch('updateItem')
     }
   }
-  
+
 }
 </script>
-
-<style>
-  .form {
-    margin: 0 auto;
-  }
-
-  .form-container {
-    display: flex;
-    height: 423px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-  }
-</style>

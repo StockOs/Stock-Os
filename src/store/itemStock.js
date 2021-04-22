@@ -3,12 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import router from '../router/index'
 
-
-
-
 Vue.use(Vuex)
-
-
 
 export default new Vuex.Store({
 
@@ -16,7 +11,7 @@ export default new Vuex.Store({
     item: {
       name: "",
       quantity: "",
-      price: null,  
+      price: null,
     },
     itemsStock: [],
   },

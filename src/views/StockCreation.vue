@@ -14,14 +14,13 @@
   import ItemCreation from '@/components/ItemCreation.vue'
   import StockDisplayTable from '@/components/StockDisplayTable.vue'
 
-
   export default {
     components: {
       ItemCreation,
       StockDisplayTable
     },
       mounted(){
-      this.$store.itemStock.dispatch("getItems");
+      this.$store.itemStock.dispatch("getItems")
     },
     methods: {
       addItemStock(item) {

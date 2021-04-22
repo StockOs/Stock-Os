@@ -1,25 +1,30 @@
 <template>
   <form class="form" @submit.prevent="addItemStock()">
-    <h2 class="uppercase-text">Ajoutez vos Items</h2>
-    <BaseInput 
-      :class="{'input-stock-dash': inputIsInStockDash}"
-      label="Items" 
+    <h2 class="uppercase-text">Ajoutez vos items</h2>
+    <BaseInput
+      :class="{ 'input-stock-dash': inputIsInStockDash }"
+      label="Nom de l'item"
       v-model="item.name"
     />
-    
-    <BaseInput 
-      :class="{'input-stock-dash': inputIsInStockDash}"
-      label="Quantité" 
+
+    <BaseInput
+      :class="{ 'input-stock-dash': inputIsInStockDash }"
+      label="Quantité"
       v-model="item.quantity"
     />
 
-    <BaseInput 
-      :class="{'input-stock-dash': inputIsInStockDash}"
-      label="Prix a l'unité" 
+    <BaseInput
+      :class="{ 'input-stock-dash': inputIsInStockDash }"
+      label="Prix a l'unité"
       v-model="item.price"
     />
 
-    <BaseButton class="buttonForm" type="submit">Ajouter un item</BaseButton>
+    <BaseButton
+      class="buttonForm"
+      type="submit"
+    >
+      Ajouter
+    </BaseButton>
   </form>
 </template>
 
