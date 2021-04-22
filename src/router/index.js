@@ -38,7 +38,6 @@ const routes = [
   {
     path: '/subscription',
     name: 'subscription',
-    meta: { layout: "main" },
     component: () => import('../views/Subscription.vue')
   },
   {
