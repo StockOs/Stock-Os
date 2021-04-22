@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import router from '../router/index'
 
 Vue.use(Vuex)
 
@@ -14,10 +15,7 @@ export default new Vuex.Store({
       expYear: null,
       codeCVC: null,
     },
-    isPopUpDisplayed: true,
-  },
-
-  getters: {
+    isPopUpDisplayed: false,
   },
 
   mutations: {
@@ -28,7 +26,6 @@ export default new Vuex.Store({
 
   actions: {
     ADD_PAYMENT({ state, commit }) {
-      console.log('ADD_PAYMENT')
       axios.post('http://localhost:3000/api/payment', {
         name: state.paymentInformations.name,
         cardNumber: state.paymentInformations.cardNumber,
@@ -39,9 +36,11 @@ export default new Vuex.Store({
         headers: {
           "Authorization": `Bearer ${localStorage.getItem('user-token')} `,
         },
-      }).then(res => {
+      }).then(() => {
         commit('DISPLAY_POPUP')
-        res.status()
+        setTimeout(() => {
+          router.replace({ name: 'stockCreation' })
+        }, 1000)
       }).catch((error) => {
         console.log('error', error)
       })

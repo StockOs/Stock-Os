@@ -4,6 +4,7 @@
       hrefIcon="#paper-plane"
       typeAbo="Premium"
       price="Gratuit"
+      :isButtonDisplayed="true"
     />
 
     <CardSubscription
@@ -12,6 +13,7 @@
       price="9.99€/mois"
       recommended="Recommandé"
       fonctionnalities="Accès au graph + Interface commandes"
+      :isButtonDisplayed="true"
     />
 
     <CardSubscription
@@ -19,6 +21,7 @@
       typeAbo="Premium"
       price="19.99€/mois"
       fonctionnalities="Accès au graph + Interface commandes + Livraison"
+      :isButtonDisplayed="true"
     />
   </div>
 </template>

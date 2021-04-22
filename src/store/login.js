@@ -54,7 +54,7 @@ export default new Vuex.Store({
           localStorage.setItem('user-token', token)
           commit('SET_TOKEN', token)
           router.replace({
-            name: 'payment'
+            name: 'subscription'
           })
         })
         .catch(() => {

@@ -20,7 +20,7 @@
       StockDisplayTable
     },
       mounted(){
-      this.$store.itemStock.dispatch("getItems");
+      this.$store.itemStock.dispatch("getItems")
     },
     methods: {
       addItemStock(item) {

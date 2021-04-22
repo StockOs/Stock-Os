@@ -11,12 +11,14 @@
           hrefIcon="#paper-plane"
           typeAbo="Premium"
           price="Gratuit"
+          :isSubscriptionCardClicked="true"
         />
         <form @submit.prevent="submitPayment" class="form-payment">
-          <BaseInput v-model="paymentInformations.name" label="Nom" />
+          <BaseInput v-model="paymentInformations.name" label="Nom" class="input-width-payment"/>
           <BaseInput
             v-model="paymentInformations.cardNumber"
             label="Numéro de carte"
+            class="input-width-payment"
           />
           <div class="card-informations">
             <BaseInput
@@ -41,10 +43,10 @@
 </template>
 
 <script>
-import BaseButton from "../components/BaseButton.vue";
-import BaseInput from "../components/BaseInput.vue";
-import CardSubscription from "../components/CardSubscription.vue";
-import BaseIcon from "../components/icons/BaseIcon";
+import BaseButton from '../components/BaseButton.vue'
+import BaseInput from '../components/BaseInput.vue'
+import CardSubscription from '../components/CardSubscription.vue'
+import BaseIcon from '../components/icons/BaseIcon'
 
 export default {
   components: {
@@ -55,16 +57,16 @@ export default {
   },
   computed: {
     paymentInformations() {
-      return this.$store.payment.state.paymentInformations;
+      return this.$store.payment.state.paymentInformations
     },
     isPopUpDisplayed() {
-      return this.$store.payment.state.isPopUpDisplayed;
+      return this.$store.payment.state.isPopUpDisplayed
     }
   },
   methods: {
     submitPayment() {
-      this.$store.payment.dispatch("ADD_PAYMENT");
+      this.$store.payment.dispatch("ADD_PAYMENT")
     }
   }
-};
+}
 </script>

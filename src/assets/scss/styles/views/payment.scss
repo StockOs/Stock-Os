@@ -1,3 +1,7 @@
+.section {
+  height: 100vh;
+}
+
 .container-card-and-form {
   display: flex;
   flex-direction: row;
@@ -5,9 +9,6 @@
   align-items: center;
   width: 100vw;
   height: 100%;
-}
-.section {
-  height: 100vh;
 }
 
 .step-payment {
@@ -66,4 +67,8 @@
 
 .popup-text {
   margin-top: 8px;
+}
+
+.input-width-payment {
+  width: 100%;
 }
