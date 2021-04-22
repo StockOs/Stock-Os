@@ -14,7 +14,6 @@
   import ItemCreation from '@/components/ItemCreation.vue'
   import StockDisplayTable from '@/components/StockDisplayTable.vue'
 
-
   export default {
     components: {
       ItemCreation,

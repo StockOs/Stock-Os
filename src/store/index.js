@@ -3,6 +3,7 @@ import login from './login'
 import signUp from './signUp'
 import itemStock from './itemStock'
 import userInfo from './userInfo'
+import payment from './payment'
 
 export default {
   mainLayout,
@@ -10,4 +11,5 @@ export default {
   signUp,
   itemStock,
   userInfo,
+  payment,
 }

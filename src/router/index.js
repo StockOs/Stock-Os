@@ -41,6 +41,11 @@ const routes = [
     component: () => import('../views/Subscription.vue')
   },
   {
+    path: '/payment',
+    name: 'payment',
+    component: () => import('../views/Payment.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
     meta: {
