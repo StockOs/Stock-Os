@@ -1,24 +1,10 @@
-# stock-os
+# Stock'Os
+Stock'Os is a stock management project designed primarily for restaurant owners.
 
 ## Project setup
-```
-npm install
-```
+To run this project locally you must : 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Clone this project
+2. Cd in Stck-Os
+3. npm install
+4. npm run serve
